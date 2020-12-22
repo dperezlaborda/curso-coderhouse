@@ -1,0 +1,71 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+#header-area{
+    height: 76px;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.navbar{
+    background-color: #6d8c8e;
+}
+
+.navbar-light .navbar-toggler{
+    border: none;
+}
+
+.navbar-light .navbar-toggler:hover{
+    background-color:#7c9da0;
+    transition: 0.1s ease-in-out;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color:#f1f0f1;
+    font-family: 'Ubuntu', sans-serif;
+    padding-left: 13px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .show>.nav-link:hover
+.navbar-light .navbar-nav .active > .nav-link:hover{
+    color:#aec8ca;
+    transition: 0.1s ease-in-out;
+}
+
+.navbar-light .navbar-nav .nav-link.active{
+    color:#aec8ca;
+}
+
+.dropdown-menu{
+    background-color: #6d8c8e;
+    font-family: 'Ubuntu', sans-serif;
+    border: none;
+    left: 35px;
+}
+
+.dropdown-item{
+    color: #f1f0f1;
+}
+
+.dropdown-item.active, .dropdown-item:active{
+    background-color: #6d8c8e;
+}
+
+.dropdown-item:hover{
+    background:none;
+    color:#aec8ca;
+    transition: 0.1s ease-in-out;
+}
+
+@media (min-width: 992px){
+    .dropdown-item{
+        left: 35px;
+    }
+}
