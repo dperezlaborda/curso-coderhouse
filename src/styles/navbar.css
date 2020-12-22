@@ -1,9 +1,9 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 #header-area{
+    box-sizing: border-box;
     height: 76px;
     width: 100vw;
-    box-sizing: border-box;
 }
 
 .navbar{
@@ -22,8 +22,8 @@
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
-    outline: none;
     box-shadow: none;
+    outline: none;
 }
 
 .navbar-light .navbar-nav .nav-link{
@@ -45,8 +45,8 @@
 
 .dropdown-menu{
     background-color: #6d8c8e;
-    font-family: 'Ubuntu', sans-serif;
     border: none;
+    font-family: 'Ubuntu', sans-serif;
     left: 35px;
 }
 
@@ -64,8 +64,17 @@
     transition: 0.1s ease-in-out;
 }
 
-@media (min-width: 992px){
-    .dropdown-item{
-        left: 35px;
+.icon{
+    color:#f1f0f1;
+    cursor:pointer;
+}
+
+.icon:hover{
+    color:#aec8ca;
+}
+
+@media (max-width: 768px){
+    .icon{
+        display:none;
     }
 }
