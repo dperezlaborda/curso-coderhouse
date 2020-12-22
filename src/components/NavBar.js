@@ -10,7 +10,7 @@ import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 const NavBar = () => {
     return (
         <header id="header-area">
-            <Navbar expand="md" fixed="top" className="navbar-dark">
+            <Navbar expand="md" fixed="top" className="navbar-dark px-4">
                 <Navbar.Brand href="#home">
                     <img src={logo} alt="logo de brand" className="d-inline-block align-top" width="70" height="50" />
                 </Navbar.Brand>
