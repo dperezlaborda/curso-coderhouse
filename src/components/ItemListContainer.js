@@ -12,11 +12,8 @@ const ItemListContainer = ({ greeting, name, max = 10 }) => { //despues se saca 
     }
 
     const removeProduct = () => {
-        if (counter !== 1) {
+        if (counter !== 1)
             setCounter(counter - 1)
-        } else {
-            console.log("no se puede")
-        }
     }
 
     return (
