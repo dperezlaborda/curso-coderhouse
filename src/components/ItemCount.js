@@ -8,7 +8,6 @@ import '../styles/ItemCount.css';
 import Container from 'react-bootstrap/Container';
 
 const ItemCount = ({ counter, addProduct, removeProduct, stock }) => {
-
     return (
         <Container>
             <p className="mt-5">Silla Wassily</p>
