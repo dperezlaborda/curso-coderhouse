@@ -7,7 +7,7 @@ function App() {
   const [counter, setCounter] = useState(1);
 
   const addProduct = () => {
-    setCounter(counter + 1);
+    if (counter < max) setCounter(counter + 1);
   }
 
   const removeProduct = () => {
@@ -25,6 +25,8 @@ function App() {
         counter={counter}
         addProduct={addProduct}
         removeProduct={removeProduct}
+        max={10}
+        stock={10}
       />
     </div>
   );

@@ -7,10 +7,12 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/ItemCount.css';
 import Container from 'react-bootstrap/Container';
 
-const ItemCount = ({ counter, addProduct, removeProduct }) => {
+const ItemCount = ({ counter, addProduct, removeProduct, stock }) => {
+
     return (
         <Container>
             <p className="mt-5">Silla Wassily</p>
+            <p>Stock disponible: {stock}</p>
             <Row className="mx-3">
                 <Col xs={4} md={3} lg={2} className="px-4 d-flex justify-content-center counter">
                     <Row className="bttn-border">
