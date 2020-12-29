@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import NavBar from './components/NavBar';
 import ItemCount from './components/ItemCount';
+import ItemListContainer from './components/ItemListContainer';
+
 
 function App() {
 
@@ -26,6 +28,7 @@ function App() {
         addProduct={addProduct}
         removeProduct={removeProduct}
       />
+      <ItemListContainer greeting="Hola Dolores" name="Dolores" />
     </div>
   );
 }
