@@ -3,9 +3,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../images/logo.png';
+import CartWidget from './CartWidget';
 import '../styles/navbar.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
     return (
@@ -15,6 +14,7 @@ const NavBar = () => {
                     <img src={logo} alt="logo de brand" className="d-inline-block align-top" width="70" height="50" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler ml-auto" />
+                <CartWidget />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-auto">
                         <Nav.Link href="#home">Inicio</Nav.Link>
@@ -28,8 +28,6 @@ const NavBar = () => {
                         <Nav.Link href="#contact">Contacto</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-                <FontAwesomeIcon icon={faShoppingCart} className="icon mr-4" />
-                <FontAwesomeIcon icon={faUser} className="icon" />
             </Navbar>
         </header >
     )

@@ -72,9 +72,3 @@
 .icon:hover{
     color:#aec8ca;
 }
-
-@media (max-width: 768px){
-    .icon{
-        display:none;
-    }
-}
