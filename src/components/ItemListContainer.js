@@ -16,6 +16,10 @@ const ItemListContainer = ({ greeting, name, max = 10 }) => { //despues se saca 
             setCounter(counter - 1)
     }
 
+    const addCart = () => {
+        console.log(counter + 1);
+    }
+
     return (
         <section id="greeting">
             <h2 className="greeting-title">{greeting}!</h2>
@@ -24,6 +28,7 @@ const ItemListContainer = ({ greeting, name, max = 10 }) => { //despues se saca 
                 counter={counter}
                 addProduct={addProduct}
                 removeProduct={removeProduct}
+                addCart={addCart}
                 stock={10}
             />
         </section>

@@ -7,7 +7,7 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/ItemCount.css';
 import Container from 'react-bootstrap/Container';
 
-const ItemCount = ({ counter, addProduct, removeProduct, stock }) => {
+const ItemCount = ({ counter, addProduct, removeProduct, addCart, stock }) => {
     return (
         <Container>
             <p className="mt-5">Silla Wassily</p>
@@ -25,7 +25,7 @@ const ItemCount = ({ counter, addProduct, removeProduct, stock }) => {
                     </Row>
                 </Col>
                 <Col xs={4} md={9} lg={10} className="addCart">
-                    <Button className="text-uppercase addCart-btn noShadow">agregar al carrito</Button>
+                    <Button onClick={addCart} className="text-uppercase addCart-btn noShadow">agregar al carrito</Button>
                 </Col>
             </Row>
         </Container>
