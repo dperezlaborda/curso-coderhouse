@@ -1,0 +1,50 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.bttn-border{
+    align-items: center;
+    border:1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display:flex;
+    font-size: 16px;
+    justify-content: center;
+    margin-bottom: 15px;
+    min-width:130px;
+    height:45px;
+    width:130px;
+}
+
+.counter, .addCart{
+    min-width:130px;
+}
+
+.addCart-btn{
+    font-size:13px;
+    height: 45px;
+    min-width:130px;
+}
+
+.btn-primary{
+    align-items: center;
+    background-color:#6d8c8e;
+    border-color: #6d8c8e;
+    border-radius: 10px;
+    display:flex;
+}
+
+.btn-primary:hover{
+    background-color:#7c9da0;
+    border-color: #7c9da0;
+    transition: 0.2s ease-in-out;
+}
+
+.noShadow:focus {
+    box-shadow: none;
+}
+
+.quantity{
+    font-size: 16px;
+    padding:5px 13px;
+    margin: 0;
+}

@@ -31,5 +31,4 @@ const ItemCount = ({ counter, addProduct, removeProduct, addCart, stock }) => {
         </Container>
     )
 }
-
 export default ItemCount;
