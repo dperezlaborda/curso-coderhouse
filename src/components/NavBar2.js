@@ -5,18 +5,18 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import '../styles/navbar2.css';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logo from '../images/logo.png';
 import CartWidget from './CartWidget';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar2 = () => {
     return (
         <header id="header-area">
             <div className="main-menu">
-                <Navbar expand="lg" fixed="top" className="navbar-dark">
-                    <Container>
+                <Navbar expand="lg" className="navbar-dark">
+                    <Container fluid>
                         <div className="logo">
                             <Navbar.Brand>
                                 <img src={logo} alt="logo en mobile" width="70" height="50" />
@@ -24,7 +24,7 @@ const NavBar2 = () => {
                         </div>
                         <div className="logo2">
                             <Navbar.Brand>
-                                <img src={logo} alt="logo en mobile" width="70" height="50" />
+                                <img src={logo} alt="logo en desktop" width="100" height="70" />
                             </Navbar.Brand>
                         </div>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler ml-auto" />
@@ -41,11 +41,11 @@ const NavBar2 = () => {
                                 <Nav.Link href="#contact">Contacto</Nav.Link>
                             </Nav>
                             <Nav>
-                                <Nav.Link>
-                                    <FontAwesomeIcon icon={faSearch} />
-                                </Nav.Link>
-                                <Nav.Link>
+                                <Nav.Link href="#cart">
                                     <CartWidget />
+                                </Nav.Link>
+                                <Nav.Link href="#login">
+                                    <FontAwesomeIcon icon={faUser} />
                                 </Nav.Link>
                             </Nav>
                         </Navbar.Collapse>

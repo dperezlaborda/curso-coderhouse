@@ -1,0 +1,21 @@
+.bg-container{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.text-banner{
+    color:#fff;
+}
+
+.title-banner{
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform: uppercase;
+    margin-bottom:30px;
+}
+
+.sub-banner{
+    font-size:14px;
+    margin: 0;
+}
