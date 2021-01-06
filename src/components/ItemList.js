@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Item from './Item';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
 const ItemList = () => { //map y array
 
-    const products = [
+    const [products, setProducts] = useState([]);
+
+    const chairs = [
         {
             id: 1001,
             title: "Silla DSW",
@@ -29,16 +31,36 @@ const ItemList = () => { //map y array
         }
     ]
 
+    useEffect(() => {
+
+        let listProducts = new Promise((res, rej) => {
+            setTimeout(() => {
+                res(chairs)  //array
+                rej("Se rechazo")
+            }, 10000)
+
+        })
+        listProducts.then(res => {
+            setProducts(res)  //state 
+        }).catch(err => {
+            console.log("No anda")
+        })
+
+    }, [])
+
     return (
         <Container>
             <Row>
-                {products.map(product =>
-                    <Item key={product.id}
-                        title={product.title}
-                        description={product.description}
-                        price={product.price}
-                        picture={product.picture}
-                    />
+                {products.map(product => {
+                    return (
+                        <Item key={product.id}
+                            title={product.title}
+                            description={product.description}
+                            price={product.price}
+                            picture={product.picture}
+                        />
+                    )
+                }
                 )}
             </Row>
         </Container>
