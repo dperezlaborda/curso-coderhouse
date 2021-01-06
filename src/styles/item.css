@@ -1,0 +1,13 @@
+.card{
+    max-width: 260px;
+    height: 510px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    min-width:260px;
+}
+
+.card img{
+    height: 387px;
+
+}
