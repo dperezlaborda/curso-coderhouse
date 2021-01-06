@@ -5,9 +5,9 @@ import Container from 'react-bootstrap/Container';
 
 const ItemList = () => { //map y array
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([]);   //creo el estado
 
-    const chairs = [
+    const chairs = [   //creo el array
         {
             id: 1001,
             title: "Silla DSW",
@@ -31,13 +31,12 @@ const ItemList = () => { //map y array
         }
     ]
 
-    useEffect(() => {
-
+    useEffect(() => {   //creo el efecto con la promesa 
         let listProducts = new Promise((res, rej) => {
             setTimeout(() => {
                 res(chairs)  //array
                 rej("Se rechazo")
-            }, 10000)
+            }, 2000)
 
         })
         listProducts.then(res => {
@@ -45,23 +44,23 @@ const ItemList = () => { //map y array
         }).catch(err => {
             console.log("No anda")
         })
-
-    }, [])
+    }, [])    //no se repite
 
     return (
         <Container>
             <Row>
-                {products.map(product => {
-                    return (
-                        <Item key={product.id}
-                            title={product.title}
-                            description={product.description}
-                            price={product.price}
-                            picture={product.picture}
-                        />
-                    )
-                }
-                )}
+                {products.length > 0
+                    ? products.map(product => {
+                        return (
+                            <Item key={product.id}
+                                title={product.title}
+                                description={product.description}
+                                price={product.price}
+                                picture={product.picture}
+                            />
+                        )
+                    }
+                    ) : <p>Cargando...</p>}   {/* cambiar x animacion */}
             </Row>
         </Container>
     )
