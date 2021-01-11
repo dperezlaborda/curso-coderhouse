@@ -15,7 +15,7 @@ const Item = ({ id, title, price, picture }) => {
                 <Card.Img src={picture} alt={`foto de ${title}`} />
                 <ul className="img-overlay d-flex justify-content-center">
                     <li>
-                        <Button className="bttn-overlay">
+                        <Button className="bttn-overlay">  {/* aca adentro iria el link al itemDetail*/}
                             <FontAwesomeIcon icon={faSearchPlus} />
                         </Button>
                     </li>
