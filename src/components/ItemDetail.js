@@ -8,7 +8,7 @@ import fotito from '../images/chairDSW.jpg'
 
 import '../styles/itemDetail.css';
 
-const ItemDetail = ({ max = 10 }) => {  //despues se saca el max de aca.
+const ItemDetail = ({ product, max = 10 }) => {  //despues se saca el max de aca.
 
     const [counter, setCounter] = useState(1);
 

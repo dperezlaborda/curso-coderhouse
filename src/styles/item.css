@@ -5,13 +5,54 @@
     margin-right: auto;
     overflow: hidden;
     min-width:260px;
+    cursor: pointer;
+}
+
+.img-wrapper{
+    position: relative;
+    height:387px;
 }
 
 .card img{
     height: 387px;
 }
 
+.img-overlay{
+    position: absolute;
+    background: #6d8c8ee1;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:30px 5px;
+    color: red;
+    visibility: hidden;
+    list-style-type: none;
+    opacity: 0;
+    margin: 0;
+    transition: all .48s ease;
+}
+
+.img-wrapper:hover .img-overlay{
+    visibility: visible;
+    opacity: 0.6;
+}
+
+.bttn-overlay{
+    background:none;
+    border: none;
+}
+
+.bttn-overlay:hover{
+    background-color:#475A5C;
+}
+
 .card-title{
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    color:#6d8c8e;
+}
+
+.card-title:hover{
+    transition:all .48s ease;
+    color:#475A5C;
 }

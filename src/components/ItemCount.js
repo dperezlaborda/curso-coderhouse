@@ -12,16 +12,16 @@ const ItemCount = ({ counter, addProduct, removeProduct, addCart, stock }) => {
             <p className="stock">Stock disponible: {stock}</p>
             <Row>
                 <Col className="counter">
-                    <Button onClick={addProduct} className="noShadow">
+                    <Button onClick={addProduct} className="noShadow counter-bttn">
                         <FontAwesomeIcon icon={faPlus} />
                     </Button>
                     <p className="quantity">{counter}</p>
-                    <Button onClick={removeProduct} className="noShadow">
+                    <Button onClick={removeProduct} className="noShadow counter-bttn">
                         <FontAwesomeIcon icon={faMinus} />
                     </Button>
                 </Col>
                 <Col className="addCart">
-                    <Button onClick={addCart} className="text-uppercase addCart-btn noShadow">agregar al carrito</Button>
+                    <Button onClick={addCart} className="text-uppercase addCart-btn noShadow counter-bttn">agregar al carrito</Button>
                 </Col>
             </Row>
         </>

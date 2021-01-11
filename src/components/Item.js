@@ -1,15 +1,34 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
 import '../styles/item.css';
 
-const Item = ({ id, title, description, price, picture }) => {
+const Item = ({ id, title, price, picture }) => {
     return (
         <Card>
-            <Card.Img src={picture} alt={`foto de ${title}`} />
+            <div className="img-wrapper">
+                <Card.Img src={picture} alt={`foto de ${title}`} />
+                <ul className="img-overlay d-flex justify-content-center">
+                    <li>
+                        <Button className="bttn-overlay">
+                            <FontAwesomeIcon icon={faSearchPlus} />
+                        </Button>
+                    </li>
+                    <li>
+                        <Button className="bttn-overlay">
+                            <FontAwesomeIcon icon={faShoppingCart} />
+                        </Button>
+                    </li>
+                </ul>
+            </div>
             <Card.Body>
-                <Card.Title>{title}</Card.Title>
+                <Card.Title className="text-center">{title}</Card.Title>
                 <Card.Text>
-                    Materiales: {description}
                     <p className="text-center mt-2"><strong>${price}</strong></p>
                 </Card.Text>
             </Card.Body>
