@@ -1,0 +1,49 @@
+#item-detail{
+    padding: 65px 0 70px;
+}
+
+.item-txt{
+    margin-top: 65px;
+}
+
+.item-txt h3{
+    color: #475A5C;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+    letter-spacing:1px;
+}
+
+.item-txt h2{
+    font-size:24px;
+    color: #6d8c8e;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.item-txt p{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top:1px dotted #eeeeee;
+    border-bottom: 1px dotted #eeeeee;
+    margin: 20px 0;
+    color: #6d8c8e;
+}
+
+.item-card-area{
+    display:inline-block;
+}
+
+.item-specification{
+    margin-top:20px;
+}
+
+table td{
+    color: #6d8c8e;
+    font-family: 'Roboto', sans-serif;
+}
+
+table .bold{
+    font-weight: bold;
+    letter-spacing: 1px;
+}
