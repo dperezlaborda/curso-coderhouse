@@ -8,7 +8,7 @@ import fotito from '../images/chairDSW.jpg'
 
 import '../styles/itemDetail.css';
 
-const ItemDetail = ({ id, title, price, description, picture, color, width, height, profundidad, material }) => {
+const ItemDetail = ({ id, title, price, description, picture, color, width, height, profundidad, material, stock }) => {
 
     return (
         <section id="item-detail">
@@ -26,7 +26,7 @@ const ItemDetail = ({ id, title, price, description, picture, color, width, heig
                             </p>
                         </div>
                         <div className="item-card-area">
-                            <ItemCount stock={10} />
+                            <ItemCount stock={stock} />
                         </div>
                     </Col>
                     <Col className="item-specification">

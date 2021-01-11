@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useParams } from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail';
 
-//array de productos
 
 const chairs = [   //array global
     {
@@ -14,7 +13,8 @@ const chairs = [   //array global
         width: "46 cm",
         height: "83,5 cm",
         profundidad: "40 cm",
-        material: "Plástico y Madera de arce"
+        material: "Plástico y Madera de arce",
+        stock: 15
     },
     {
         id: 1002,
@@ -26,7 +26,8 @@ const chairs = [   //array global
         width: "46 cm",
         height: "83,5 cm",
         profundidad: "40 cm",
-        material: "Plástico y Madera de arce"
+        material: "Plástico y Madera de arce",
+        stock: 20
     },
     {
         id: 1003,
@@ -38,22 +39,23 @@ const chairs = [   //array global
         width: "50 cm",
         height: "80 cm",
         profundidad: "40 cm",
-        material: "Fibra de vidrio y Aluminio"
+        material: "Fibra de vidrio y Aluminio",
+        stock: 10
     }
 ]
 
 const ItemDetailContainer = ({ id }) => {   //otro array
 
     const [product, setProduct] = useState()   //guardo un solo elemento
+    //const { id } = useParams()
 
-
-
-    useEffect(() => {
+    useEffect((/*id = 1003*/) => {  //funciona ok, trae el id (despues borrar)
         let detailProduct = new Promise((res, rej) => {
             setTimeout(() => {
                 res(
-                    chairs.find(chair => chair.id === 1003)  //aca seria x id 
+                    chairs.find(chair => chair.id === id)  //Aparece cargando porq no estoy llamando a ningun id en particular. 
                 )
+                rej("Se rechazo")
             }, 2000)
         })
         detailProduct.then(res => {
