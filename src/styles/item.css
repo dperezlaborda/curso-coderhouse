@@ -9,5 +9,9 @@
 
 .card img{
     height: 387px;
+}
 
+.card-title{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
