@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail';
 
-
 const chairs = [   //array global
     {
         id: 1001,
@@ -48,7 +47,7 @@ const ItemDetailContainer = ({ id }) => {   //otro array
 
     const [product, setProduct] = useState()   //guardo un solo elemento
     //const { id } = useParams()
-
+    
     useEffect((/*id = 1003*/) => {  //funciona ok, trae el id (despues borrar)
         let detailProduct = new Promise((res, rej) => {
             setTimeout(() => {

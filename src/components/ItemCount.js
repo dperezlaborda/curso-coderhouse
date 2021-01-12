@@ -26,7 +26,7 @@ const ItemCount = ({ max = 10, stock }) => {//despues se saca el max de aca.
 
     return (
         <>
-            <p className="stock">Stock disponible: {stock}</p>
+            <p className="stock">Stock disponible:</p>  {/*visualizar el stock de cada item*/}
             <Row>
                 <Col className="counter">
                     <Button onClick={addProduct} className="noShadow counter-bttn">
