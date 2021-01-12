@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/itemCount.css';
 
-const ItemCount = ({ max = 10 }) => {//despues se saca el max de aca.
+const ItemCount = ({ max = 10, stock }) => {//despues se saca el max de aca.
 
     const [counter, setCounter] = useState(1);
 

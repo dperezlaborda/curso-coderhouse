@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,47 +8,25 @@ import fotito from '../images/chairDSW.jpg'
 
 import '../styles/itemDetail.css';
 
-const ItemDetail = ({ product, max = 10 }) => {  //despues se saca el max de aca.
-
-    const [counter, setCounter] = useState(1);
-
-    const addProduct = () => {
-        if (counter < max)
-            setCounter(counter + 1);
-    }
-
-    const removeProduct = () => {
-        if (counter !== 1)
-            setCounter(counter - 1)
-    }
-
-    const addCart = () => {
-        console.log(counter + 1);
-    }
+const ItemDetail = ({ id, title, price, description, picture, color, width, height, profundidad, material, stock }) => {
 
     return (
         <section id="item-detail">
             <Container>
                 <Row>
                     <Col lg="6" className="item-image">
-                        <img className="img-fluid" src={fotito} alt="producto de" />
+                        <img className="img-fluid" src={picture} alt="producto de" />
                     </Col>
                     <Col lg="5" className="item-info">
                         <div className="item-txt">
-                            <h3>Silla DSW</h3>
-                            <h2>$ 3800</h2>
+                            <h3>{title}</h3>
+                            <h2>$ {price}</h2>
                             <p>
-                                La DSW se integrará perfectamente al acondicionamiento de su cocina pero también a su sala comedor durante sus reuniones de familia.
+                                {description}
                             </p>
                         </div>
                         <div className="item-card-area">
-                            <ItemCount
-                                counter={counter}
-                                addProduct={addProduct}
-                                removeProduct={removeProduct}
-                                addCart={addCart}
-                                stock={10}
-                            />
+                            <ItemCount stock={stock} />
                         </div>
                     </Col>
                     <Col className="item-specification">
@@ -56,23 +34,23 @@ const ItemDetail = ({ product, max = 10 }) => {  //despues se saca el max de aca
                             <tbody>
                                 <tr>
                                     <td className="bold">Color</td>
-                                    <td>Blanco / Negro</td>
+                                    <td>{color}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Ancho</td>
-                                    <td>46 cm</td>
+                                    <td>{width}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Altura</td>
-                                    <td>83,5 cm</td>
+                                    <td>{height}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Profundidad</td>
-                                    <td>40 cm</td>
+                                    <td>{profundidad}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Material</td>
-                                    <td>Plástico y Madera de arce</td>
+                                    <td>{material}</td>
                                 </tr>
                             </tbody>
                         </Table>

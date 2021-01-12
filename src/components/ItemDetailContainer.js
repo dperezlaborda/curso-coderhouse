@@ -43,10 +43,11 @@ const chairs = [   //array global
     }
 ]
 
-const ItemDetailContainer = ({ id }) => {
+const ItemDetailContainer = ({ id }) => {   //otro array
 
-    const [product, setProduct] = useState() //guardo un solo elemento
-
+    const [product, setProduct] = useState()   //guardo un solo elemento
+    //const { id } = useParams()
+    
     useEffect((/*id = 1003*/) => {  //funciona ok, trae el id (despues borrar)
         let detailProduct = new Promise((res, rej) => {
             setTimeout(() => {
@@ -76,7 +77,8 @@ const ItemDetailContainer = ({ id }) => {
                     width={product.width}
                     height={product.height}
                     profundidad={product.profundidad}
-                    material={product.material} />
+                    material={product.material}
+                />
                 : <h2>Cargando...</h2>}
         </div>
     )
