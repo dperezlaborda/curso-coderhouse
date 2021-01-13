@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { NavLink } from 'react-router-dom';
 
 import '../styles/navbar2.css';
 
@@ -14,39 +15,36 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 const NavBar2 = () => {
     return (
         <header id="header-area">
-            <div className="main-menu">
+            <div className="main-menu fixed-top">
                 <Navbar expand="lg" className="navbar-dark">
                     <Container fluid>
                         <div className="logo">
-                            <Navbar.Brand>
-                                <img src={logo} alt="logo en mobile" width="70" height="50" />
-                            </Navbar.Brand>
-                        </div>
-                        <div className="logo2">
-                            <Navbar.Brand>
-                                <img src={logo} alt="logo en desktop" width="100" height="70" />
-                            </Navbar.Brand>
+                            <NavLink to="/">
+                                <Navbar.Brand>
+                                    <img src={logo} alt="logo en mobile" />
+                                </Navbar.Brand>
+                            </NavLink>
                         </div>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler ml-auto" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mx-auto">
-                                <Nav.Link href="#home">Inicio</Nav.Link>
-                                <Nav.Link href="#ofertas">Descuentos</Nav.Link>
-                                <NavDropdown title="Productos" id="basic-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">Sillas</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Mesas</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Escritorios</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.4">Decoración</NavDropdown.Item>
+                                <NavLink to="/" exact className="nav-link">Inicio</NavLink>
+                                <NavDropdown title="Shop" id="basic-nav-dropdown">
+                                    <NavLink to="/productos" className="dropdown-item" >Todos los Productos</NavLink>
+                                    <NavLink to="/category/sillas" className="dropdown-item" >Sillas</NavLink>
+                                    <NavLink to="/category/escritorios" className="dropdown-item">Escritorios</NavLink>
+                                    <NavLink to="/category/deco" className="dropdown-item">Decoración</NavLink>
                                 </NavDropdown>
-                                <Nav.Link href="#contact">Contacto</Nav.Link>
+                                <NavLink to="/info" className="nav-link">Info y Ayuda</NavLink>
+                                <NavLink to="/contacto" className="nav-link">Contacto</NavLink>
                             </Nav>
                             <Nav>
-                                <Nav.Link href="#cart">
+                                <NavLink className="nav-link" to="/cart">
                                     <CartWidget />
-                                </Nav.Link>
-                                <Nav.Link href="#login">
+                                </NavLink>
+                                <NavLink className="nav-link" to="/login">
                                     <FontAwesomeIcon icon={faUser} />
-                                </Nav.Link>
+                                </NavLink>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

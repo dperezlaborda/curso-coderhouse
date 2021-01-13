@@ -6,6 +6,7 @@
     overflow: hidden;
     min-width:260px;
     cursor: pointer;
+    margin-bottom: 25px;
 }
 
 .img-wrapper{
@@ -15,6 +16,7 @@
 
 .card img{
     height: 387px;
+    object-fit: cover;
 }
 
 .img-overlay{
