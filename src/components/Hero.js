@@ -1,25 +1,24 @@
 import React from 'react';
-import bg from '../images/hero-bg.jpg';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import bgHero from '../images/hero-1.jpg';
 
 import '../styles/hero.css';
 
-const Hero = () => {
+const Hero = () => {  //pasar x props el titulo de cada hero
     return (
         <Container fluid id="hero-banner">
-            <Row className="bg-container py-5"
-                style={{
-                    backgroundImage: `url(${bg})`
-                }}>
-                <div className="overlay"></div>
-                <Container className="text-banner">
-                    <h3 className="title-banner">Shop is fun</h3>
-                    <p className="sub-banner">Donec porta, ipsum eu maximus porttitor, tortor tellus finibus sem, nec tempus mi urna vel tortor. Aliquam sit amet feugiat turpis. Pellentesque at sapien eu sapien commodo semper. </p>
+            <Row className="bg d-flex align-items-center justify-content-center">
+                <img src={bgHero} alt="background" />
+                <Container className="text-hero text-center">
+                    <h1 className="title-hero text-uppercase">Bla bla</h1>
+                    <p className="sub-hero">Donec porta, ipsum eu maximus porttitor, tortor tellus finibus sem, nec tempus mi urna vel tortor. Aliquam sit amet feugiat turpis. Pellentesque at. </p>
+                    <Button>Shop Now</Button>
                 </Container>
-            </Row>
+            </Row >
         </Container >
     )
 }
 
-export default Hero;
+export default Hero; 

@@ -4,12 +4,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import ItemCount from './ItemCount';
-import fotito from '../images/chairDSW.jpg'
 
 import '../styles/itemDetail.css';
 
-const ItemDetail = ({ id, title, price, description, picture, color, width, height, profundidad, material, stock }) => {
-
+const ItemDetail = ({ title, price, description, picture, color, width, height, profundidad, material, stock }) => {
     return (
         <section id="item-detail">
             <Container>
