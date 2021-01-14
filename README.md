@@ -8,7 +8,4 @@ La librería extra que use es Bootstrap;
 3. Al clickear en un producto del catálogo te muestra los detalles.
 
 
-[![Demo Doccou alpha] <iframe src='' frameborder='0' scrolling='no' width='1280px' height='718px' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);'>
-</iframe>
-
-![Alt Text](https://gifs.com/embed/e-commerce-P7nlzn.gif)
+![alt-text] (https://gifs.com/gif/e-commerce-P7nlzn)
