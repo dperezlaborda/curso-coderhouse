@@ -9,3 +9,19 @@ La librería extra que use es Bootstrap;
 
 
 ![screen-capture](https://user-images.githubusercontent.com/55368538/104540069-8916ed00-55fd-11eb-82e9-3f4cdfe4dc30.gif)
+
+Se aplica responsive desing
+
+En version desktop
+
+![Captura1](https://user-images.githubusercontent.com/55368538/104540315-f88cdc80-55fd-11eb-976e-40c2eea9fa96.PNG)
+
+
+En version tablet
+
+![Captura3](https://user-images.githubusercontent.com/55368538/104540442-3db10e80-55fe-11eb-8667-4372e4131be1.PNG)
+
+
+En version mobile
+
+![Captura4](https://user-images.githubusercontent.com/55368538/104540470-499cd080-55fe-11eb-8f12-9cba15290d3c.PNG)
