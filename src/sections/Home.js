@@ -1,11 +1,12 @@
 import React from 'react';
 import HeroHome from '../components/HeroHome';
+import ItemListContainer from '../components/ItemListContainer';
 
 const Home = () => {
     return (
         <>
             <HeroHome />
-            <h2>Inicio</h2>
+            <ItemListContainer />
         </>
     )
 }

@@ -13,29 +13,31 @@ const Item = ({ id, title, price, picture }) => {
     console.log(id)
     return (
         <Card>
-            <div className="img-wrapper">
-                <Card.Img src={picture} alt={`foto de ${title}`} />
-                <ul className="img-overlay d-flex justify-content-center">
-                    <li>
-                        <Link to={"/product/" + id}>
-                            <Button className="bttn-overlay">  {/* aca adentro iria el link al itemDetail*/}
-                                <FontAwesomeIcon icon={faSearchPlus} />
+            <Link to={`/product/${id} `}>
+                <div className="img-wrapper">
+                    <Card.Img src={picture} alt={`foto de ${title}`} />
+                    <ul className="img-overlay d-flex justify-content-center">
+                        <li>
+                            <Link to={`/product/${id} `}>
+                                <Button className="bttn-overlay">  {/* aca adentro iria el link al itemDetail*/}
+                                    <FontAwesomeIcon icon={faSearchPlus} />
+                                </Button>
+                            </Link>
+                        </li>
+                        <li>
+                            <Button className="bttn-overlay">
+                                <FontAwesomeIcon icon={faShoppingCart} />
                             </Button>
-                        </Link>
-                    </li>
-                    <li>
-                        <Button className="bttn-overlay">
-                            <FontAwesomeIcon icon={faShoppingCart} />
-                        </Button>
-                    </li>
-                </ul>
-            </div>
-            <Card.Body>
-                <Card.Title className="text-center">{title}</Card.Title>
-                <Card.Text>
-                    <span className="text-center mt-2"><strong>${price}</strong></span>
-                </Card.Text>
-            </Card.Body>
+                        </li>
+                    </ul>
+                </div>
+                <Card.Body>
+                    <Card.Title className="text-center">{title}</Card.Title>
+                    <p className="text-center price mt-2">
+                        <strong>${price}</strong>
+                    </p>
+                </Card.Body>
+            </Link>
         </Card>
     )
 }

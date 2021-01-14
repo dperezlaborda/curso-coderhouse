@@ -43,9 +43,9 @@ const Footer = () => {
                             <div className="footer-title">
                                 <h4>accesos rapidos</h4>
                                 <ul>
-                                    <li>Descuentos</li>
-                                    <li>Best Sellers</li>
-                                    <li>Productos</li>
+                                    <li>Shop</li>
+                                    <li>Contacto</li>
+                                    <li>Info y Ayuda</li>
                                 </ul>
                             </div>
                         </div>

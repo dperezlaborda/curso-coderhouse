@@ -17,7 +17,6 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home />
-              <ItemListContainer />
             </Route>
             <Route path="/category/:id">  {/*se separan x categorias*/}
               <ItemListContainer />

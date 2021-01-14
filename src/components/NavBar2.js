@@ -30,7 +30,6 @@ const NavBar2 = () => {
                             <Nav className="mx-auto">
                                 <NavLink to="/" exact className="nav-link">Inicio</NavLink>
                                 <NavDropdown title="Shop" id="basic-nav-dropdown">
-                                    <NavLink to="/productos" className="dropdown-item" >Todos los Productos</NavLink>
                                     <NavLink to="/category/sillas" className="dropdown-item" >Sillas</NavLink>
                                     <NavLink to="/category/escritorios" className="dropdown-item">Escritorios</NavLink>
                                     <NavLink to="/category/deco" className="dropdown-item">Decoración</NavLink>

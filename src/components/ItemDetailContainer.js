@@ -139,7 +139,7 @@ const ItemDetailContainer = () => {   //otro array
 
     useEffect(() => {  //funciona ok, trae el id (despues borrar)
         const detailProduct = new Promise((res, rej) => {
-            setTimeout((loading) => {
+            setTimeout(() => {
                 return res(
                     details.filter(product => product.id === Number(id))[0]
                 );
@@ -168,6 +168,7 @@ const ItemDetailContainer = () => {   //otro array
                     height={detail.height}
                     profundidad={detail.profundidad}
                     material={detail.material}
+                    stock={detail.stock}
                 />
                 : <h2>Cargando...</h2>
             }

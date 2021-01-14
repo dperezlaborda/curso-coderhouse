@@ -1,3 +1,7 @@
+.card a:hover{
+    text-decoration:none;
+}
+
 .card{
     max-width: 260px;
     height: 510px;
@@ -7,6 +11,12 @@
     min-width:260px;
     cursor: pointer;
     margin-bottom: 25px;
+    border: none;
+}
+
+.card:hover{
+    transition:.2s ease-out;
+    box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.38);
 }
 
 .img-wrapper{
@@ -57,4 +67,8 @@
 .card-title:hover{
     transition:all .48s ease;
     color:#475A5C;
+}
+
+.price{
+    color:#6d8c8e;
 }
