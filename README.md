@@ -8,4 +8,4 @@ La librería extra que use es Bootstrap;
 3. Al clickear en un producto del catálogo te muestra los detalles.
 
 
-![alt-text] (https://j.gifs.com/P7nlzn.gif)
+![screen-capture](https://user-images.githubusercontent.com/55368538/104540069-8916ed00-55fd-11eb-82e9-3f4cdfe4dc30.gif)
