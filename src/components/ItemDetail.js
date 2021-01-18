@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,6 +8,17 @@ import ItemCount from './ItemCount';
 import '../styles/itemDetail.css';
 
 const ItemDetail = ({ title, price, description, picture, color, width, height, profundidad, material, stock }) => {
+
+    const [counterDetail, setCounterDetail] = useState(null);
+    const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
+
+    //se agrega el producto al carrito
+    const onAdd = quantityToAdd => {
+        console.log("se agregan " + quantityToAdd + " productos")
+        setCounterDetail(quantityToAdd)
+        setBttnText(false)
+    }
+
     return (
         <section id="item-detail">
             <Container>
@@ -24,7 +35,7 @@ const ItemDetail = ({ title, price, description, picture, color, width, height, 
                             </p>
                         </div>
                         <div className="item-card-area">
-                            <ItemCount stock={stock} />
+                            <ItemCount stock={stock} onAdd={onAdd} bttnText={bttnText} />
                         </div>
                     </Col>
                     <Col className="item-specification">

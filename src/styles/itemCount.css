@@ -14,10 +14,15 @@
     max-width:170px;
 }
 
+.addCart{
+    width:220px;
+}
+
 .addCart-btn{
     font-size:13px;
     height: 60px;
     min-width:130px;
+    letter-spacing:1px;
 }
 
  .counter-bttn{

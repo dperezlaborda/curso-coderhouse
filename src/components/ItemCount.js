@@ -2,31 +2,34 @@ import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/itemCount.css';
 
-const ItemCount = ({ max = 10, stock }) => {//despues se saca el max de aca.
+const ItemCount = ({ stock, onAdd, bttnText }) => {//despues se saca el max de aca.
 
     const [counter, setCounter] = useState(1);
 
+    //se suma el producto
     const addProduct = () => {
-        if (counter < max)
+        if (counter < stock)
             setCounter(counter + 1);
     }
 
+    //se elimina el producto
     const removeProduct = () => {
         if (counter !== 1)
             setCounter(counter - 1)
     }
 
     const addCart = () => {
-        console.log(counter);
+        onAdd(counter)
     }
 
     return (
         <>
-            <p className="stock">Stock disponible:{stock}</p>  {/*visualizar el stock de cada item*/}
+            <p className="stock">Stock disponible: {stock}</p>  {/*visualizar el stock de cada item*/}
             <Row>
                 <Col className="counter">
                     <Button onClick={addProduct} className="noShadow counter-bttn">
@@ -38,7 +41,13 @@ const ItemCount = ({ max = 10, stock }) => {//despues se saca el max de aca.
                     </Button>
                 </Col>
                 <Col className="addCart">
-                    <Button onClick={addCart} className="text-uppercase addCart-btn noShadow counter-bttn">agregar al carrito</Button>
+                    {bttnText ?
+                        <Button onClick={addCart} className="text-uppercase addCart-btn noShadow counter-bttn">Agregar al carrito</Button>
+                        :
+                        <Link to="/cart">
+                            <Button className="text-uppercase addCart-btn noShadow counter-bttn">Terminar compra</Button>
+                        </Link>
+                    }
                 </Col>
             </Row>
         </>
