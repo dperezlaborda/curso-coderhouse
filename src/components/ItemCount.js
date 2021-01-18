@@ -7,8 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/itemCount.css';
 
-const ItemCount = ({ stock, onAdd, bttnText }) => {//despues se saca el max de aca.
-
+const ItemCount = ({ stock, onAdd, bttnText }) => {
     const [counter, setCounter] = useState(1);
 
     //se suma el producto

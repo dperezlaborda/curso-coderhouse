@@ -4,7 +4,7 @@ import Hero from '../components/Hero';
 const Info = () => {
     return (
         <>
-            <Hero />
+            <Hero sectionTitle="Info y Ayuda" />
             <h2>info y ayuda</h2>
         </>
     )
