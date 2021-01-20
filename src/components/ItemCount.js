@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -7,24 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/itemCount.css';
 
-const ItemCount = ({ stock, onAdd, bttnText }) => {
-    const [counter, setCounter] = useState(1);
-
-    //se suma el producto
-    const addProduct = () => {
-        if (counter < stock)
-            setCounter(counter + 1);
-    }
-
-    //se elimina el producto
-    const removeProduct = () => {
-        if (counter !== 1)
-            setCounter(counter - 1)
-    }
-
-    const addCart = () => {
-        onAdd(counter)
-    }
+const ItemCount = ({ counter, addProduct, removeProduct, onAdd, stock, bttnText }) => {
 
     return (
         <>
@@ -41,7 +24,7 @@ const ItemCount = ({ stock, onAdd, bttnText }) => {
                 </Col>
                 <Col className="addCart">
                     {bttnText ?
-                        <Button onClick={addCart} className="text-uppercase addCart-btn noShadow counter-bttn">Agregar al carrito</Button>
+                        <Button onClick={onAdd} className="text-uppercase addCart-btn noShadow counter-bttn">Agregar al carrito</Button>
                         :
                         <Link to="/cart">
                             <Button className="text-uppercase addCart-btn noShadow counter-bttn">Terminar compra</Button>

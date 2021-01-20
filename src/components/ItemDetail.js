@@ -9,14 +9,27 @@ import '../styles/itemDetail.css';
 
 const ItemDetail = ({ title, price, description, picture, color, width, height, profundidad, material, stock }) => {
 
-    const [counterDetail, setCounterDetail] = useState(null);
+    const [counter, setCounter] = useState(1);
+    const [cart, setCart] = useState([]);
     const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
 
+    //se suma el producto
+    const addProduct = () => {
+        if (counter < stock)
+            setCounter(counter + 1);
+    }
+
+    //se elimina el producto
+    const removeProduct = () => {
+        if (counter !== 1)
+            setCounter(counter - 1)
+    }
+
     //se agrega el producto al carrito
-    const onAdd = quantityToAdd => {
-        console.log("se agregan " + quantityToAdd + " productos")
-        setCounterDetail(quantityToAdd)
-        setBttnText(false)
+    const onAdd = (product) => {
+        console.log("se agregan " + counter + " productos")
+        setCart(...cart, { id: product.id, title: product.title, picture: product.picture, quantity: counter })
+        setBttnText(false);
     }
 
     return (
@@ -35,7 +48,7 @@ const ItemDetail = ({ title, price, description, picture, color, width, height, 
                             </p>
                         </div>
                         <div className="item-card-area">
-                            <ItemCount stock={stock} onAdd={onAdd} bttnText={bttnText} />
+                            <ItemCount counter={counter} addProduct={addProduct} removeProduct={removeProduct} onAdd={onAdd} stock={stock} bttnText={bttnText} />
                         </div>
                     </Col>
                     <Col className="item-specification">
