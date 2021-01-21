@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
 import ItemDetail from './ItemDetail';
 
 const details = [   //array global
@@ -137,6 +138,8 @@ const ItemDetailContainer = () => {   //otro array
     const [detail, setDetail] = useState([])   //guardo un solo elemento
     const { id } = useParams()
 
+    const { addItem } = useContext(CartContext);
+
     useEffect(() => {  //funciona ok, trae el id (despues borrar)
         const detailProduct = new Promise((res, rej) => {
             setTimeout(() => {
@@ -169,6 +172,7 @@ const ItemDetailContainer = () => {   //otro array
                     profundidad={detail.profundidad}
                     material={detail.material}
                     stock={detail.stock}
+                    addItem={addItem}
                 />
                 : <h2>Cargando...</h2>
             }

@@ -5,13 +5,16 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import ItemCount from './ItemCount';
 
+
 import '../styles/itemDetail.css';
 
-const ItemDetail = ({ title, price, description, picture, color, width, height, profundidad, material, stock }) => {
+const ItemDetail = ({ id, title, price, description, picture, color, width, height, profundidad, material, stock }) => {
 
     const [counter, setCounter] = useState(1);
     const [cart, setCart] = useState([]);
     const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
+
+    
 
     //se suma el producto
     const addProduct = () => {

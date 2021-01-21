@@ -1,28 +1,10 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { useState } from "react";
 
-const CartContext = createContext(); //se maneja la logica, Provider(que tiene que encapsular el padre, seria App) 
+export const CartContext = React.createContext(); //se crea el contexto
 
-const CartProvider = ({ children }) => { //funciones y estado
+const CartProvider = ({ children }) => {  //esta llamo en App
 
-    //los estados
-    const [cart, setCart] = useState([]);    //cart[] 
-    const [cartItems, setCartItems] = useState(0);
-    const [total, setTotal] = useState(0);
-
-    // Cada vez que se modifique el carrito corro el total nuevamente
-    useEffect(() => {
-        var t = 0
-        // Con el map obtengo el total por producto
-        const totals = cart.map( p => p.price * p.amount)
-        // Sumo a t el total por producto de cada uno
-        totals.map( p => t = t + p)
-        // Lo guardo en el estado
-        setTotal(t)
-        // Calculo la cantidad de productos
-        const cartQuantity = cart.length
-        // Las guardo en el estado
-        setCartItems(cartQuantity)
-    }, [cart])
+    const [cart, setCart] = useState([]);
 
     //Primero busco x id si el producto esta en el carrito
     const isInCart = (id) => {
@@ -43,7 +25,7 @@ const CartProvider = ({ children }) => { //funciones y estado
                 )
             )
         } else {
-            const newProduct = { id: product.id, name: product.name, image: product.image, price: product.price, quantity: 1 }
+            const newProduct = { id: product.id, title: product.title, picture: product.picture, price: product.price, quantity: 1 }
             setCart([...cart, newProduct]);
         }
     }
@@ -60,8 +42,8 @@ const CartProvider = ({ children }) => { //funciones y estado
     }
 
     return (
-        <CartContext.Provider value={{cart, cartItems, total, addItem, removeItem, clearCart}}>
-            {children}
+        <CartContext.Provider value={{ cart, isInCart, addItem, removeItem, clearCart }}>
+            { children}
         </CartContext.Provider>
     )
 }

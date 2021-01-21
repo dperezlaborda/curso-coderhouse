@@ -11,7 +11,8 @@ const ItemList = ({ products }) => { //traigo el array
                 {products.length > 0
                     ? products.map(product => {
                         return (
-                            <Item key={product.id}
+                            <Item
+                                key={product.id}
                                 id={product.id}   //RE IMPORTANTE
                                 title={product.title}
                                 price={product.price}
