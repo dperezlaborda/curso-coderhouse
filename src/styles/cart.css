@@ -1,0 +1,20 @@
+#cart{
+    padding-top: 90px;
+    padding-bottom:40px;
+    text-align:center;
+}
+
+.cart-text{
+    font-size:17px;
+
+}
+
+.cart-link{
+    color: #DCAA22;
+    text-transform: uppercase;
+}
+
+.cart-link:hover{
+    color:#bb911e;
+}
+

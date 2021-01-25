@@ -138,8 +138,6 @@ const ItemDetailContainer = () => {   //otro array
     const [detail, setDetail] = useState([])   //guardo un solo elemento
     const { id } = useParams()
 
-    const { addItem } = useContext(CartContext);
-
     useEffect(() => {  //funciona ok, trae el id (despues borrar)
         const detailProduct = new Promise((res, rej) => {
             setTimeout(() => {
@@ -161,18 +159,7 @@ const ItemDetailContainer = () => {   //otro array
         <div>
             {detail
                 ? <ItemDetail
-                    id={detail.id}
-                    title={detail.title}
-                    price={detail.price}
-                    description={detail.description}
-                    picture={detail.picture}
-                    color={detail.color}
-                    width={detail.width}
-                    height={detail.height}
-                    profundidad={detail.profundidad}
-                    material={detail.material}
-                    stock={detail.stock}
-                    addItem={addItem}
+                    detail={detail}
                 />
                 : <h2>Cargando...</h2>
             }

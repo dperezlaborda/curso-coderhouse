@@ -1,0 +1,13 @@
+.imagen-cart{
+    height: 100px;
+    width:auto;
+    padding-right: 30px;
+}
+
+.trash-icon{
+    cursor:pointer;
+}
+
+.trash-icon:hover{
+    color:#DCAA22;
+}

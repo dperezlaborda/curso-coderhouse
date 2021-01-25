@@ -8,13 +8,11 @@ import ItemCount from './ItemCount';
 
 import '../styles/itemDetail.css';
 
-const ItemDetail = ({ id, title, price, description, picture, color, width, height, profundidad, material, stock }) => {
+const ItemDetail = ({ detail }) => {
 
+    const { title, price, description, picture, color, width, height, profundidad, material, stock } = detail;
     const [counter, setCounter] = useState(1);
-    const [cart, setCart] = useState([]);
     const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
-
-    
 
     //se suma el producto
     const addProduct = () => {
@@ -22,17 +20,12 @@ const ItemDetail = ({ id, title, price, description, picture, color, width, heig
             setCounter(counter + 1);
     }
 
+    //product.quantity = counter
+
     //se elimina el producto
     const removeProduct = () => {
         if (counter !== 1)
             setCounter(counter - 1)
-    }
-
-    //se agrega el producto al carrito
-    const onAdd = (product) => {
-        console.log("se agregan " + counter + " productos")
-        setCart(...cart, { id: product.id, title: product.title, picture: product.picture, quantity: counter })
-        setBttnText(false);
     }
 
     return (
@@ -51,7 +44,12 @@ const ItemDetail = ({ id, title, price, description, picture, color, width, heig
                             </p>
                         </div>
                         <div className="item-card-area">
-                            <ItemCount counter={counter} addProduct={addProduct} removeProduct={removeProduct} onAdd={onAdd} stock={stock} bttnText={bttnText} />
+                            <ItemCount counter={counter}
+                                setCounter={setCounter}
+                                addProduct={addProduct}
+                                removeProduct={removeProduct}
+                                stock={stock} bttnText={bttnText}
+                                detail={detail} setBttnText={setBttnText} />
                         </div>
                     </Col>
                     <Col className="item-specification">

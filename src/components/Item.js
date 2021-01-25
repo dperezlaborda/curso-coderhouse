@@ -9,8 +9,8 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import '../styles/item.css';
 
-const Item = ({ id, title, price, picture }) => {
-    console.log(id)
+const Item = ({ id, title, price, picture, addToCart }) => {
+
     return (
         <Card>
             <Link to={`/product/${id} `}>
