@@ -13,19 +13,11 @@ const CartItem = ({ title, price, picture, amount, id }) => {
 
     return (
         <Table>
-            <thead>
-                <tr>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th></th>
-                    <th>Total</th>
-                </tr>
-            </thead>
+
             <tbody>
                 <tr>
                     <td>
-                        <div className="d-flex align-items-start">
+                        <div className="d-flex align-items-start media">
                             <img src={picture} alt="fotito" className="imagen-cart" />
                             <p>{title}</p>
                         </div>

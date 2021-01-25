@@ -4,6 +4,11 @@
     padding-right: 30px;
 }
 
+.media{
+    width: 50px;
+    min-width: 50px;
+}
+
 .trash-icon{
     cursor:pointer;
 }

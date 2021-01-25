@@ -16,18 +16,17 @@ const CartProvider = ({ children }) => {  //esta llamo en App
         }
     }
 
-    //Agregar item al array de cart
-    const addItem = (product, counter) => {
+    //Agrega el producto al carrito
+    const addItem = (product, counter) =>{
         if (isInCart(product.id)) {
-            const productFinder = cart.find(prod => prod.id === product.id)
-            const nQuantity = productFinder.amount + counter
-            const nProduct = { id: productFinder.id, title: productFinder.title, picture: productFinder.picture, price: productFinder.price, amount: nQuantity }
+            const isIn = cart.find(prod => prod.id === product.id)
+            const quantity = isIn.amount + counter;
+            const nProduct = { id: isIn.id, title: isIn.title, picture: isIn.picture, price: isIn.price, amount: quantity }
             const deleteProduct = cart.filter(prod => prod.id != product.id);
             const completeCart = [...deleteProduct, nProduct]
             setCart(completeCart)
-        } else {
-            const products = { id: product.id, title: product.title, picture: product.picture, price: product.price, amount: counter }
-            setCart([...cart, products]);
+        }else{
+            setCart([...cart, {id: product.id, title: product.title, picture: product.picture, price: product.price, amount: counter}])
         }
     }
 
