@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -8,9 +8,26 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/itemCount.css';
 import { CartContext } from '../context/CartContext';
 
-const ItemCount = ({ id, counter, stock, bttnText, detail, setBttnText, addProduct, removeProduct }) => {
+const ItemCount = ({ id, stock, bttnText, detail, setBttnText }) => {
+
 
     const { addItem } = useContext(CartContext); //traigo del contexto la funcion addItem
+
+    const [counter, setCounter] = useState(1);
+
+    //se suma el producto
+    const addProduct = () => {
+        if(counter < stock){
+            setCounter(counter + 1);
+        }
+    }
+
+    //se elimina el producto
+    const removeProduct = () => {
+        if (counter > 1) {
+            setCounter(counter - 1)
+        }
+    }
 
     const addToCart = () => {
         addItem(detail, counter, id)   //agrego el item al carrito

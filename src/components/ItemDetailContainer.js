@@ -149,7 +149,7 @@ const ItemDetailContainer = () => {  //llamar firestore x id
             setItemFire({ ...product })
         })
 
-    }, [id]);
+    }, [itemFire]);
 
     return (
         <div>

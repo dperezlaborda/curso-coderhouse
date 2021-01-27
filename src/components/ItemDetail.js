@@ -11,20 +11,10 @@ import '../styles/itemDetail.css';
 const ItemDetail = ({ itemFire }) => {
 
     //const { title, price, description, picture, color, width, height, material, stock } = detail;
-    const [counter, setCounter] = useState(1);
+
     const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
 
-    //se suma el producto
-    const addProduct = (stock) => {
-        if (counter < stock)
-            setCounter(counter + 1);
-    }
 
-    //se elimina el producto
-    const removeProduct = () => {
-        if (counter !== 1)
-            setCounter(counter - 1)
-    }
 
     return (
         <section id="item-detail">
@@ -42,12 +32,9 @@ const ItemDetail = ({ itemFire }) => {
                             </p>
                         </div>
                         <div className="item-card-area">
-                            <ItemCount counter={counter}
-                                setCounter={setCounter}
-                                addProduct={addProduct}
-                                removeProduct={removeProduct}
+                            <ItemCount
                                 stock={itemFire.stock} bttnText={bttnText}
-                                setBttnText={setBttnText} />
+                                setBttnText={setBttnText} initial={itemFire.initial} />
                         </div>
                     </Col>
                     <Col className="item-specification">
