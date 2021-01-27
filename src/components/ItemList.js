@@ -7,7 +7,6 @@ const ItemList = ({ products }) => { //traigo el array
 
     return (
         <Container>
-            <p>soy item list</p>
             <Row>
                 {products.length > 0
                     ? products.map(product => {

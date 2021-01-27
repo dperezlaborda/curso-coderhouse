@@ -8,19 +8,17 @@ import ItemCount from './ItemCount';
 
 import '../styles/itemDetail.css';
 
-const ItemDetail = ({ detail }) => {
+const ItemDetail = ({ itemFire }) => {
 
-    const { title, price, description, picture, color, width, height, profundidad, material, stock } = detail;
+    //const { title, price, description, picture, color, width, height, material, stock } = detail;
     const [counter, setCounter] = useState(1);
     const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
 
     //se suma el producto
-    const addProduct = () => {
+    const addProduct = (stock) => {
         if (counter < stock)
             setCounter(counter + 1);
     }
-
-    //product.quantity = counter
 
     //se elimina el producto
     const removeProduct = () => {
@@ -33,14 +31,14 @@ const ItemDetail = ({ detail }) => {
             <Container>
                 <Row>
                     <Col lg="6" className="item-image">
-                        <img className="img-fluid" src={picture} alt="producto de" />
+                        <img className="img-fluid" src={itemFire.picture} alt="producto de" />
                     </Col>
                     <Col lg="5" className="item-info">
                         <div className="item-txt">
-                            <h3>{title}</h3>
-                            <h2>$ {price}</h2>
+                            <h3>{itemFire.title}</h3>
+                            <h2>$ {itemFire.price}</h2>
                             <p>
-                                {description}
+                                {itemFire.description}
                             </p>
                         </div>
                         <div className="item-card-area">
@@ -48,8 +46,8 @@ const ItemDetail = ({ detail }) => {
                                 setCounter={setCounter}
                                 addProduct={addProduct}
                                 removeProduct={removeProduct}
-                                stock={stock} bttnText={bttnText}
-                                detail={detail} setBttnText={setBttnText} />
+                                stock={itemFire.stock} bttnText={bttnText}
+                                setBttnText={setBttnText} />
                         </div>
                     </Col>
                     <Col className="item-specification">
@@ -57,23 +55,19 @@ const ItemDetail = ({ detail }) => {
                             <tbody>
                                 <tr>
                                     <td className="bold">Color</td>
-                                    <td>{color}</td>
+                                    <td>{itemFire.color}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Ancho</td>
-                                    <td>{width}</td>
+                                    <td>{itemFire.width}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Altura</td>
-                                    <td>{height}</td>
-                                </tr>
-                                <tr>
-                                    <td className="bold">Profundidad</td>
-                                    <td>{profundidad}</td>
+                                    <td>{itemFire.height}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Material</td>
-                                    <td>{material}</td>
+                                    <td>{itemFire.material}</td>
                                 </tr>
                             </tbody>
                         </Table>

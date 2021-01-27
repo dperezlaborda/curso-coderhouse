@@ -25,3 +25,4 @@ En version tablet
 En version mobile
 
 ![Captura4](https://user-images.githubusercontent.com/55368538/104540470-499cd080-55fe-11eb-8f12-9cba15290d3c.PNG)
+

@@ -13,7 +13,6 @@ const CartItem = ({ title, price, picture, amount, id }) => {
 
     return (
         <Table>
-
             <tbody>
                 <tr>
                     <td>

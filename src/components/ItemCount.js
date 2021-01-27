@@ -12,13 +12,10 @@ const ItemCount = ({ id, counter, stock, bttnText, detail, setBttnText, addProdu
 
     const { addItem } = useContext(CartContext); //traigo del contexto la funcion addItem
 
-
     const addToCart = () => {
         addItem(detail, counter, id)   //agrego el item al carrito
         setBttnText(false);   //traigo el texto de Terminar Compra
     }
-
-
 
     return (
         <>
