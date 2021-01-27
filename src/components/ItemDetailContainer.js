@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { CartContext } from '../context/CartContext';
 import ItemDetail from './ItemDetail';
 
 const details = [   //array global

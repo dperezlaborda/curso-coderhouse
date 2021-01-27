@@ -22,7 +22,7 @@ const CartProvider = ({ children }) => {  //esta llamo en App
             const isIn = cart.find(prod => prod.id === product.id)
             const quantity = isIn.amount + counter;
             const nProduct = { id: isIn.id, title: isIn.title, picture: isIn.picture, price: isIn.price, amount: quantity }
-            const deleteProduct = cart.filter(prod => prod.id != product.id);
+            const deleteProduct = cart.filter(prod => prod.id !== product.id);
             const completeCart = [...deleteProduct, nProduct]
             setCart(completeCart)
         }else{
