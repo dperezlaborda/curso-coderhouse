@@ -132,7 +132,6 @@ import { getFirestore } from "../firebaseConfig";
 //     }
 // ]
 
-
 const ItemDetailContainer = () => {  //llamar firestore x id
 
     const [itemFire, setItemFire] = useState([]);  //guardo 1 solo elemento
@@ -144,18 +143,21 @@ const ItemDetailContainer = () => {  //llamar firestore x id
         const itemCollection = db.collection("items");
         const item = itemCollection.doc(id)
 
-        item.get().then((querySnapshot) => {
-            const product = { id: querySnapshot.id, ...querySnapshot.data() }
+        item.get().then(doc => {
+            const product = { id: doc.id, ...doc.data() }
             setItemFire({ ...product })
         })
 
-    }, [itemFire]);
+    }, []);
+
+    // console.log(id);
 
     return (
         <div>
             {itemFire.length !== 0
                 ? <ItemDetail
                     itemFire={itemFire}
+
                 />
                 : <h2>Cargando...</h2>
             }

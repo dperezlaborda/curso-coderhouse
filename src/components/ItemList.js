@@ -17,6 +17,7 @@ const ItemList = ({ products }) => { //traigo el array
                                 title={product.title}
                                 price={product.price}
                                 picture={product.picture}
+                                category={product.category}
                             />
                         )
                     }

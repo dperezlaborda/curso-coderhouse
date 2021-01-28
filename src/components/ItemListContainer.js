@@ -80,9 +80,9 @@ const ItemListContainer = () => {   //llamar firestore por categorias
         const db = getFirestore();
         let docs;
 
-        if(category){
+        if (category) {
             docs = db.collection("items").where("category", "==", category);
-        }else{
+        } else {
             docs = db.collection("items");
         }
 
@@ -90,14 +90,15 @@ const ItemListContainer = () => {   //llamar firestore por categorias
             if (querySnapshot.size === 0) {
                 console.log("No se encontraron resultados");
             }
-            setProducts(querySnapshot.docs.map(doc => ({...doc.data(), id: doc.id})))
+            const documents = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+            setProducts(documents);
         })
-        .catch(err=>{
-            console.log(err);
-        })
+            .catch(err => {
+                console.log(err);
+            })
     }, [category]);
-    
-    return(
+
+    return (
         <section id="greeting">
             <h2 className="greeting-title">Bienvenido</h2>
             <p className="greeting-txt"> ipsum dolor sit amet, consectetur adipiscing elit. Ut vel leo in ex tristique rhoncus.</p>
@@ -107,3 +108,4 @@ const ItemListContainer = () => {   //llamar firestore por categorias
 }
 
 export default ItemListContainer;
+

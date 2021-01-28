@@ -14,8 +14,6 @@ const ItemDetail = ({ itemFire }) => {
 
     const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
 
-
-
     return (
         <section id="item-detail">
             <Container>
@@ -34,7 +32,7 @@ const ItemDetail = ({ itemFire }) => {
                         <div className="item-card-area">
                             <ItemCount
                                 stock={itemFire.stock} bttnText={bttnText}
-                                setBttnText={setBttnText} initial={itemFire.initial} />
+                                setBttnText={setBttnText} />
                         </div>
                     </Col>
                     <Col className="item-specification">
