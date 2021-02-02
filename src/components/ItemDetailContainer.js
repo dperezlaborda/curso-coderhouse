@@ -136,7 +136,6 @@ const ItemDetailContainer = () => {  //llamar firestore x id
 
     const [itemFire, setItemFire] = useState([]);  //guardo 1 solo elemento
     const { id } = useParams();
-    //console.log("montado");
 
     useEffect(() => {
         const db = getFirestore();
@@ -148,16 +147,13 @@ const ItemDetailContainer = () => {  //llamar firestore x id
             setItemFire({ ...product })
         })
 
-    }, []);
-
-    // console.log(id);
+    }, [id]);
 
     return (
         <div>
-            {itemFire.length !== 0
-                ? <ItemDetail
-                    itemFire={itemFire}
-
+            {itemFire.length !== 0 ? 
+                    <ItemDetail
+                        itemFire={itemFire}
                 />
                 : <h2>Cargando...</h2>
             }

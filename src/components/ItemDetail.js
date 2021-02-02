@@ -11,8 +11,8 @@ import '../styles/itemDetail.css';
 const ItemDetail = ({ itemFire }) => {
 
     //const { title, price, description, picture, color, width, height, material, stock } = detail;
-
     const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
+
 
     return (
         <section id="item-detail">
@@ -31,7 +31,7 @@ const ItemDetail = ({ itemFire }) => {
                         </div>
                         <div className="item-card-area">
                             <ItemCount
-                                stock={itemFire.stock} bttnText={bttnText}
+                                stock={itemFire.stock} bttnText={bttnText} 
                                 setBttnText={setBttnText} />
                         </div>
                     </Col>

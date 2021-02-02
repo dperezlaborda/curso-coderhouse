@@ -9,7 +9,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import '../styles/item.css';
 
-const Item = ({ id, title, price, picture, addToCart }) => {
+const Item = ({ id, title, price, picture }) => {
 
     return (
         <Card>

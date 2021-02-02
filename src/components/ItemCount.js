@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -8,11 +8,9 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/itemCount.css';
 import { CartContext } from '../context/CartContext';
 
-const ItemCount = ({ id, stock, bttnText, detail, setBttnText }) => {
-
+const ItemCount = ({ id, stock, bttnText, setBttnText }) => {
 
     const { addItem } = useContext(CartContext); //traigo del contexto la funcion addItem
-
     const [counter, setCounter] = useState(1);
 
     //se suma el producto
@@ -29,8 +27,8 @@ const ItemCount = ({ id, stock, bttnText, detail, setBttnText }) => {
         }
     }
 
-    const addToCart = () => {
-        addItem(detail, counter, id)   //agrego el item al carrito
+    const addToCart = (counter, id) => {
+        addItem(counter, id)   //agrego el item al carrito
         setBttnText(false);   //traigo el texto de Terminar Compra
     }
 
@@ -49,7 +47,7 @@ const ItemCount = ({ id, stock, bttnText, detail, setBttnText }) => {
                 </Col>
                 <Col className="addCart">
                     {bttnText ?
-                        <Button onClick={() => addToCart()} className="text-uppercase addCart-btn noShadow counter-bttn">Agregar al carrito</Button>
+                        <Button onClick={ ()=> addToCart() } className="text-uppercase addCart-btn noShadow counter-bttn">Agregar al carrito</Button>
                         :
                         <Link to="/cart">
                             <Button className="text-uppercase addCart-btn noShadow counter-bttn">Terminar compra</Button>

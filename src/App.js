@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CartProvider from './context/CartContext';
 import NavBar2 from './components/NavBar2';
 import Home from './sections/Home';
@@ -9,9 +9,11 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import Cart from './components/Cart';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { getFirestore } from "./firebaseConfig";
 
 
 function App() {
+
 
   return (
     <div className="App">
@@ -20,11 +22,14 @@ function App() {
           <NavBar2 />
           <main>
             <Switch>
-              <Route exact path="/">
+              {/* <Route exact path="/">
                 <Home />
+              </Route> */}
+              <Route path="/">  {/*se separan x categorias*/}
+                <ItemListContainer />
               </Route>
               <Route path="/category/:id">  {/*se separan x categorias*/}
-                <ItemListContainer />
+                <ItemListContainer  />
               </Route>
               <Route exact path="/cart">
                 <Cart />

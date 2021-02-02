@@ -9,15 +9,15 @@ const ItemList = ({ products }) => { //traigo el array
         <Container>
             <Row>
                 {products.length > 0
-                    ? products.map(product => {
+                    ? products.map(p => {
                         return (
                             <Item
-                                key={product.id}
-                                id={product.id}   //RE IMPORTANTE
-                                title={product.title}
-                                price={product.price}
-                                picture={product.picture}
-                                category={product.category}
+                                key={p.id}
+                                id={p.id}   //RE IMPORTANTE
+                                title={p.title}
+                                price={p.price}
+                                picture={p.picture}
+                                category={p.category}
                             />
                         )
                     }
