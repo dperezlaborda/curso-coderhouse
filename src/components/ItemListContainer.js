@@ -70,10 +70,9 @@ import { getFirestore } from "../firebaseConfig";
 //     }
 // ]
 
+const ItemListContainer = () => {     //se filtra por categorias
 
-const ItemListContainer = () => {   //llamar firestore por categorias
-
-    const [products, setProducts] = useState([]);   //creo el estado
+    const [list, setList] = useState([]);   //creo el estado
     const { category } = useParams();
 
     useEffect(() => {   //creo el efecto con la promesa 
@@ -91,18 +90,19 @@ const ItemListContainer = () => {   //llamar firestore por categorias
                 console.log("No se encontraron resultados");
             }
             const documents = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-            setProducts(documents);
+            setList(documents);
         })
-            .catch(err => {
-                console.log(err);
-            })
+        .catch(err => {
+            console.log(err);
+        })
+        console.log(list);
     }, [category]);
 
     return (
         <section id="greeting">
             <h2 className="greeting-title">Bienvenido</h2>
             <p className="greeting-txt"> ipsum dolor sit amet, consectetur adipiscing elit. Ut vel leo in ex tristique rhoncus.</p>
-            <ItemList products={products} />
+            <ItemList list={list} />
         </section>
     )
 }

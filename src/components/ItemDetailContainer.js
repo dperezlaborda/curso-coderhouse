@@ -137,27 +137,27 @@ const ItemDetailContainer = () => {  //llamar firestore x id
     const [itemFire, setItemFire] = useState([]);  //guardo 1 solo elemento
     const { id } = useParams();
 
-    useEffect(() => {
-        const db = getFirestore();
-        const itemCollection = db.collection("items");
-        const item = itemCollection.doc(id)
+    // useEffect(() => {
+    //     const db = getFirestore();
+    //     const itemCollection = db.collection("items");
+    //     const item = itemCollection.doc(id)
 
-        item.get().then(doc => {
-            const product = { id: doc.id, ...doc.data() }
-            setItemFire({ ...product })
-        })
+    //     item.get().then(doc => {
+    //         const product = { id: doc.id, ...doc.data() }
+    //         setItemFire({ ...product })
+    //     })
 
-    }, [id]);
+    // }, [id]);
 
     return (
-        <div>
+        <>
             {itemFire.length !== 0 ? 
                     <ItemDetail
                         itemFire={itemFire}
                 />
                 : <h2>Cargando...</h2>
             }
-        </div>
+        </>
     )
 }
 

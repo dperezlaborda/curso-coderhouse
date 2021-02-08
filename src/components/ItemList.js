@@ -3,13 +3,13 @@ import Item from './Item';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
-const ItemList = ({ products }) => { //traigo el array
+const ItemList = ({ list }) => { //traigo el array
 
     return (
         <Container>
             <Row>
-                {products.length > 0
-                    ? products.map(p => {
+                {list.length > 0
+                    ? list.map(p => {
                         return (
                             <Item
                                 key={p.id}

@@ -1,50 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CartProvider from './context/CartContext';
 import NavBar2 from './components/NavBar2';
-import Home from './sections/Home';
-import Contact from './sections/Contact';
-import Info from './sections/Info';
-import Footer from './components/Footer';
-import ItemDetailContainer from './components/ItemDetailContainer';
+//import Home from './sections/Home';
+//import Contact from './sections/Contact';
+//import Info from './sections/Info';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
+import Footer from './components/Footer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { getFirestore } from "./firebaseConfig";
 
 
-function App() {
-
+const App = () => {
 
   return (
     <div className="App">
       <CartProvider>  {/*Envuelve todo para poder usar el contexto */}
         <BrowserRouter>
           <NavBar2 />
-          <main>
             <Switch>
-              {/* <Route exact path="/">
-                <Home />
-              </Route> */}
-              <Route path="/">  {/*se separan x categorias*/}
-                <ItemListContainer />
-              </Route>
-              <Route path="/category/:id">  {/*se separan x categorias*/}
-                <ItemListContainer  />
-              </Route>
-              <Route exact path="/cart">
-                <Cart />
-              </Route>
-              <Route path="/product/:id">
-                <ItemDetailContainer />
-              </Route>
-              <Route exact path="/info">
-                <Info />
-              </Route>
-              <Route exact path="/contacto">
-                <Contact />
-              </Route>
+              <Route exact path="/" component={ItemListContainer} />
+              <Route path="/categories/:category" component={ItemListContainer} />
+              <Route path="/product/:id" component={ItemDetailContainer}/>
+              <Route exact path="/cart" component={Cart}/>
             </Switch>
-          </main>
           <Footer />
         </BrowserRouter>
       </CartProvider>

@@ -1,26 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import CartItem from './CartItem';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import '../styles/cart.css';
 import Table from 'react-bootstrap/Table';
-import { getFirestore } from "../firebaseConfig";
+//import { getFirestore } from "../firebaseConfig";
 
 const Cart = () => {  //aca voy a usar el contexto
 
     const { cart } = useContext(CartContext);
 
     const total = cart.reduce((acumulador, current) => acumulador + current.price * current.amount, 0) //sumo el total de cart, cada producto
-
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
-    const [email, setEmail] = useState("");
-
-    const sendOrder = () =>{
-        const db = getFirestore();
-        //crear nueva firebase
-    }
 
     return (
         <Container id="cart">
@@ -54,7 +45,6 @@ const Cart = () => {  //aca voy a usar el contexto
                         amount={product.amount}
                         picture={product.picture}
                     />
-
                 )
             })
             }
@@ -66,6 +56,3 @@ const Cart = () => {  //aca voy a usar el contexto
 }
 
 export default Cart;
-
-
-//pasar la cantidad
