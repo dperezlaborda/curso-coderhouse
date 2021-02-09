@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
+import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
@@ -12,8 +12,8 @@ import '../styles/item.css';
 const Item = ({ id, title, price, picture }) => {
 
     return (
-        <Card>
-            <Link to={`/product/${id} `}>
+        <Col>
+            <Card>
                 <div className="img-wrapper">
                     <Card.Img src={picture} alt={`foto de ${title}`} />
                     <ul className="img-overlay d-flex justify-content-center">
@@ -37,8 +37,8 @@ const Item = ({ id, title, price, picture }) => {
                         <strong>${price}</strong>
                     </p>
                 </Card.Body>
-            </Link>
-        </Card>
+            </Card>
+        </Col>
     )
 }
 

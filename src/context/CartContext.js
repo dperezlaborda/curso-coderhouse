@@ -9,6 +9,7 @@ const CartProvider = ({ children }) => {  //esta llamo en App
     //Primero busco x id si el producto esta en el carrito
     const isInCart = (id) => {
         const exist = cart.find(product => product.id === id)
+        console.log(id);
         if (exist !== undefined) {
             return true;
         } else {
@@ -17,16 +18,17 @@ const CartProvider = ({ children }) => {  //esta llamo en App
     }
 
     //Agrega el producto al carrito
-    const addItem = (product, counter) =>{
-        if (isInCart(product.id)) {
-            const isIn = cart.find(prod => prod.id === product.id)
+    const addItem = (item, counter, id) => {
+        if (isInCart(id)) {
+            const isIn = cart.find(prod => prod.id === id)
             const quantity = isIn.amount + counter;
+
             const nProduct = { id: isIn.id, title: isIn.title, picture: isIn.picture, price: isIn.price, amount: quantity }
-            const deleteProduct = cart.filter(prod => prod.id !== product.id);
+            const deleteProduct = cart.filter(prod => prod.id !== id);
             const completeCart = [...deleteProduct, nProduct]
             setCart(completeCart)
-        }else{
-            setCart([...cart, {id: product.id, title: product.title, picture: product.picture, price: product.price, amount: counter}])
+        } else {
+            setCart([...cart, { id: item.id, title: item.title, picture: item.picture, price: item.price, amount: counter }])
         }
     }
 

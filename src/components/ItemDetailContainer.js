@@ -134,26 +134,30 @@ import { getFirestore } from "../firebaseConfig";
 
 const ItemDetailContainer = () => {  //llamar firestore x id
 
-    const [itemFire, setItemFire] = useState([]);  //guardo 1 solo elemento
+    const [loading, setLoading] = useState(false);
+    const [item, setItem] = useState([]);  //guardo 1 solo elemento
     const { id } = useParams();
 
-    // useEffect(() => {
-    //     const db = getFirestore();
-    //     const itemCollection = db.collection("items");
-    //     const item = itemCollection.doc(id)
+    useEffect(() => {
+        const db = getFirestore();
+        const itemCollection = db.collection("items");
+        const item = itemCollection.doc(id);
 
-    //     item.get().then(doc => {
-    //         const product = { id: doc.id, ...doc.data() }
-    //         setItemFire({ ...product })
-    //     })
+        console.log(item)
 
-    // }, [id]);
+        item.get().then((querySnapshot) => {
+            setLoading(false);
+            setItem({ id: querySnapshot.id, ...querySnapshot.data() })
+        });
+    }, [id])
+
 
     return (
         <>
-            {itemFire.length !== 0 ? 
-                    <ItemDetail
-                        itemFire={itemFire}
+
+             {item.length !== 0 ?
+                <ItemDetail
+                    item={item}
                 />
                 : <h2>Cargando...</h2>
             }

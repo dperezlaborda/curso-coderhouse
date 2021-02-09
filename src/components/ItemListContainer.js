@@ -92,10 +92,10 @@ const ItemListContainer = () => {     //se filtra por categorias
             const documents = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
             setList(documents);
         })
-        .catch(err => {
-            console.log(err);
-        })
-        console.log(list);
+            .catch(err => {
+                console.log(err);
+            })
+        //console.log(list);
     }, [category]);
 
     return (

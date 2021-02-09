@@ -8,7 +8,7 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/itemCount.css';
 import { CartContext } from '../context/CartContext';
 
-const ItemCount = ({ id, stock, bttnText, setBttnText }) => {
+const ItemCount = ({ item,  id, stock, bttnText, setBttnText }) => {
 
     const { addItem } = useContext(CartContext); //traigo del contexto la funcion addItem
     const [counter, setCounter] = useState(1);
@@ -27,8 +27,8 @@ const ItemCount = ({ id, stock, bttnText, setBttnText }) => {
         }
     }
 
-    const addToCart = (counter, id) => {
-        addItem(counter, id)   //agrego el item al carrito
+    const addToCart = () => {
+        addItem(counter, id, item)   //agrego el item al carrito
         setBttnText(false);   //traigo el texto de Terminar Compra
     }
 

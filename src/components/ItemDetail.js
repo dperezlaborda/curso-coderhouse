@@ -8,30 +8,29 @@ import ItemCount from './ItemCount';
 
 import '../styles/itemDetail.css';
 
-const ItemDetail = ({ itemFire }) => {
+const ItemDetail = ({ item }) => {
 
     //const { title, price, description, picture, color, width, height, material, stock } = detail;
     const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
-
 
     return (
         <section id="item-detail">
             <Container>
                 <Row>
                     <Col lg="6" className="item-image">
-                        <img className="img-fluid" src={itemFire.picture} alt="producto de" />
+                        <img className="img-fluid" src={item.picture} alt="producto de" />
                     </Col>
                     <Col lg="5" className="item-info">
                         <div className="item-txt">
-                            <h3>{itemFire.title}</h3>
-                            <h2>$ {itemFire.price}</h2>
+                            <h3>{item.title}</h3>
+                            <h2>$ {item.price}</h2>
                             <p>
-                                {itemFire.description}
+                                {item.description}
                             </p>
                         </div>
                         <div className="item-card-area">
                             <ItemCount
-                                stock={itemFire.stock} bttnText={bttnText} 
+                                stock={item.stock} bttnText={bttnText} 
                                 setBttnText={setBttnText} />
                         </div>
                     </Col>
@@ -40,19 +39,19 @@ const ItemDetail = ({ itemFire }) => {
                             <tbody>
                                 <tr>
                                     <td className="bold">Color</td>
-                                    <td>{itemFire.color}</td>
+                                    <td>{item.color}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Ancho</td>
-                                    <td>{itemFire.width}</td>
+                                    <td>{item.width}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Altura</td>
-                                    <td>{itemFire.height}</td>
+                                    <td>{item.height}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Material</td>
-                                    <td>{itemFire.material}</td>
+                                    <td>{item.material}</td>
                                 </tr>
                             </tbody>
                         </Table>

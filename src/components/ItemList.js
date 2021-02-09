@@ -1,7 +1,7 @@
 import React from 'react';
-import Item from './Item';
-import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Item from './Item';
 
 const ItemList = ({ list }) => { //traigo el array
 
