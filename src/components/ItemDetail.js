@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,10 +8,12 @@ import ItemCount from './ItemCount';
 
 import '../styles/itemDetail.css';
 
+
 const ItemDetail = ({ item }) => {
 
-    //const { title, price, description, picture, color, width, height, material, stock } = detail;
     const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
+
+    
 
     return (
         <section id="item-detail">
@@ -30,8 +32,8 @@ const ItemDetail = ({ item }) => {
                         </div>
                         <div className="item-card-area">
                             <ItemCount
-                                stock={item.stock} bttnText={bttnText} 
-                                setBttnText={setBttnText} />
+                                stock={item.stock} bttnText={bttnText}
+                                setBttnText={setBttnText} item={item} />
                         </div>
                     </Col>
                     <Col className="item-specification">

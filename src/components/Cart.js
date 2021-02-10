@@ -80,15 +80,18 @@ const Cart = () => {  //aca voy a usar el contexto
             {cart.length !== 0 &&
                 <p>Subtotal: {total}</p>
             }
-
-            <button onClick={() => handleCart()}></button>
-            <h2>Datos de compra</h2>
-            <form onSubmit={handleBuy}>
-                <input onChange={e => setName(e.target.value)} type="text" placeholder="nombre" value={name} />
-                <input onChange={e => setTel(e.target.value)} type="tel" placeholder="telefono" value={tel} />
-                <input onChange={e => setEmail(e.target.value)} type="email" placeholder="email" value={email} />
-                <button>Comprar</button>
-            </form>
+            {cart.length !== 0 &&
+                <>
+                    <button onClick={() => handleCart()}></button>
+                    <h2>Datos de compra</h2>
+                    <form onSubmit={handleBuy}>
+                        <input onChange={e => setName(e.target.value)} type="text" placeholder="nombre" value={name} />
+                        <input onChange={e => setTel(e.target.value)} type="tel" placeholder="telefono" value={tel} />
+                        <input onChange={e => setEmail(e.target.value)} type="email" placeholder="email" value={email} />
+                        <button>Comprar</button>
+                    </form>
+                </>
+            }
         </Container>
     )
 }
