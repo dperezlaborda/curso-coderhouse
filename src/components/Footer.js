@@ -26,13 +26,13 @@ const Footer = () => {
                                 <p className="padding-r">Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
                             </div>
                             <div className="footer-social">
-                                <a href="#">
+                                <a href="https://es-la.facebook.com/">
                                     <FontAwesomeIcon icon={faFacebookF} />
                                 </a>
-                                <a href="#">
+                                <a href="https://twitter.com/">
                                     <FontAwesomeIcon icon={faTwitter} />
                                 </a>
-                                <a href="#">
+                                <a href="https://www.instagram.com/">
                                     <FontAwesomeIcon icon={faInstagram} />
                                 </a>
                             </div>
