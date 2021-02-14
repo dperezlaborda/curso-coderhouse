@@ -38,12 +38,12 @@ const CartProvider = ({ children }) => {  //esta llamo en App
     }
 
     //remover todos los item de cart
-    // const clearCart = () => {
-    //     setCart([]);
-    // }
+    const clearCart = () => {
+        setCart([]);
+    }
 
     return (
-        <CartContext.Provider value={{ cart, isInCart, addItem, removeItem }}>
+        <CartContext.Provider value={{ cart, isInCart, addItem, removeItem, clearCart }}>
             { children}
         </CartContext.Provider>
     )

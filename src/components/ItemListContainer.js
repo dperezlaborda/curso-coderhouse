@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import '../styles/itemListContainer.css';
 import ItemList from './ItemList';
 import { getFirestore } from "../firebaseConfig";
+import Container from 'react-bootstrap/Container';
 
 // const allProducts = [   //array global
 //     {
@@ -95,15 +95,13 @@ const ItemListContainer = () => {     //se filtra por categorias
             .catch(err => {
                 console.log(err);
             })
-        //console.log(list);
+
     }, [category]);
 
     return (
-        <section id="greeting">
-            <h2 className="greeting-title">Bienvenido</h2>
-            <p className="greeting-txt"> ipsum dolor sit amet, consectetur adipiscing elit. Ut vel leo in ex tristique rhoncus.</p>
+        <Container className="my-5 py-5">
             <ItemList list={list} />
-        </section>
+        </Container>
     )
 }
 

@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from 'react';
-import { FirebaseContext } from '../context/FirebaseContext';
+import React, { useState, useEffect } from 'react';
+//import { FirebaseContext } from '../context/FirebaseContext';
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 import { getFirestore } from "../firebaseConfig";
+import Loader from './Loader';
 
 // const details = [   //array global
 //     {
@@ -135,39 +136,34 @@ import { getFirestore } from "../firebaseConfig";
 
 const ItemDetailContainer = () => {  //llamar firestore x id
 
-    const { item } = useContext(FirebaseContext);
+    //const { item } = useContext(FirebaseContext);
 
-    //const [loading, setLoading] = useState(false);
-    //const [item, setItem] = useState({});  //guardo 1 solo elemento
-    //const { id } = useParams();
-
-    // useEffect(() => {
-    //     if (id) {
-    //         const getProduct = async () => {
-    //             const db = getFirestore();
-    //             const itemCollection = await db.collection("items").doc(id);
-    //             const product = await itemCollection.get()
-    //             console.log(product.exists)
-    //             if (product.exists) {
-    //                 setItem(product.data())
-    //                 setLoading(false)
-    //             } else {
-    //                 console.log("error")
-    //             }
-    //         }
-    //         getProduct();
-    //     }
-    // }, [id])
+    const [loading, setLoading] = useState(false);
+    const [item, setItem] = useState({});  //guardo 1 solo elemento
+    const { id } = useParams();
 
     useEffect(() => {
-
-    })
+        if (id) {
+            const getProduct = async () => {
+                const db = getFirestore();
+                const itemCollection = await db.collection("items").doc(id);
+                const product = await itemCollection.get()
+                if (product.exists) {
+                    setItem(product.data())
+                    setLoading(false)
+                } else {
+                    console.log("error")
+                }
+            }
+            getProduct();
+        }
+    }, [id])
 
     return (
         <>
             {item.length === 0
                 ?
-                <h2>Cargando...</h2>
+                <Loader />
                 :
                 <ItemDetail
                     item={item}

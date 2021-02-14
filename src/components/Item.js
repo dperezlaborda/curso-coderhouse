@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -6,10 +6,16 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-
+import { CartContext } from '../context/CartContext';
 import '../styles/item.css';
 
 const Item = ({ id, title, price, picture }) => {
+
+    const { addItem } = useContext(CartContext);
+
+    const agrego = (id) =>{
+        addItem(id); //NO ANDA 
+    }
 
     return (
         <Col>
@@ -19,13 +25,13 @@ const Item = ({ id, title, price, picture }) => {
                     <ul className="img-overlay d-flex justify-content-center">
                         <li>
                             <Link to={`/product/${id} `}>
-                                <Button className="bttn-overlay">  {/* aca adentro iria el link al itemDetail*/}
+                                <Button className="bttn-overlay noShadow">
                                     <FontAwesomeIcon icon={faSearchPlus} />
                                 </Button>
                             </Link>
                         </li>
                         <li>
-                            <Button className="bttn-overlay">
+                            <Button onClick={()=> agrego(id)} className="bttn-overlay noShadow">
                                 <FontAwesomeIcon icon={faShoppingCart} />
                             </Button>
                         </li>

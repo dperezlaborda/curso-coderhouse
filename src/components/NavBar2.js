@@ -30,10 +30,11 @@ const NavBar2 = () => {
                             <Nav className="mx-auto">
                                 <NavLink to="/" exact className="nav-link">Inicio</NavLink>
                                 <NavDropdown title="Shop" id="basic-nav-dropdown">
-                                    <NavLink to="/" className="dropdown-item" >Todos los productos</NavLink>
+                                    <NavLink to="/" exact className="dropdown-item" >Todos los productos</NavLink>
                                     <NavLink to="/categories/sillas" className="dropdown-item" >Sillas</NavLink>
                                     <NavLink to="/categories/escritorios" className="dropdown-item">Escritorios</NavLink>
                                     <NavLink to="/categories/deco" className="dropdown-item">Decoración</NavLink>
+                                    <NavLink to="/ofertas" className="dropdown-item">Ofertas</NavLink>
                                 </NavDropdown>
                                 <NavLink to="/info" className="nav-link">Info y Ayuda</NavLink>
                                 <NavLink to="/contacto" className="nav-link">Contacto</NavLink>

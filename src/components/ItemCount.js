@@ -32,8 +32,6 @@ const ItemCount = ({ item, stock, bttnText, setBttnText }) => {
         setBttnText(false);   //traigo el texto de Terminar Compra
     }
 
-    console.log(item)
-
     return (
         <>
             <p className="stock">Stock disponible: {stock}</p>  {/*visualizar el stock de cada item*/}

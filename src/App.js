@@ -10,7 +10,6 @@ import Cart from './components/Cart';
 import Footer from './components/Footer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-
 const App = () => {
 
   return (
@@ -20,8 +19,8 @@ const App = () => {
           <NavBar2 />
             <Switch>
               <Route exact path="/" component={ItemListContainer} />
-              <Route path="/categories/:category" component={ItemListContainer} />
-              <Route path="/product/:id" component={ItemDetailContainer}/>
+              <Route exact path="/categories/:category" component={ItemListContainer} />
+              <Route exact path="/product/:id" component={ItemDetailContainer}/>
               <Route exact path="/cart" component={Cart}/>
             </Switch>
           <Footer />

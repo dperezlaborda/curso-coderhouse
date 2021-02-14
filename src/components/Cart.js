@@ -3,6 +3,7 @@ import { CartContext } from '../context/CartContext';
 import CartItem from './CartItem';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button'
 import '../styles/cart.css';
 import Table from 'react-bootstrap/Table';
 import { getFirestore } from "../firebaseConfig";
@@ -10,36 +11,36 @@ import firebase from 'firebase/app';
 
 const Cart = () => {  //aca voy a usar el contexto
 
-    const { cart } = useContext(CartContext);
+    const { cart, clearCart } = useContext(CartContext);
 
-    //const total = cart.reduce((acumulador, current) => acumulador + current.price * current.amount, 0) //sumo el total de cart, cada producto
+    const totalCart = cart.reduce((acumulador, current) => acumulador + current.price * current.amount, 0) //sumo el total de cart, cada producto
 
-    const [carrito, setCarrito] = useState([]);
+    const [openForm, setOpenForm] = useState(false);
     const [name, setName] = useState("");
     const [tel, setTel] = useState("");
     const [email, setEmail] = useState("");
-    const [total, setTotal] = useState(0);
 
-    const handleCart = ({ id, price, title }) => {
-        setCarrito([...carrito, { id, price, title }])
-        setTotal(total + price);
-    }
-    const handleBuy = (e) => {
+    const handleBuy = (e) =>{
         e.preventDefault();
         const order = {
-            buyer: { name, tel, email },
-            items: carrito,
+            buyer: {name, tel, email},
+            items: cart,
             date: firebase.firestore.Timestamp.fromDate(new Date()),
-            total
+            totalCart: totalCart
         }
-        const db = getFirestore();
-        const collection = db.collection("orders");
-        collection.add(order)
-            .then((res) => {  //deberia devolver el id 
-                console.log(res);
-            }).catch((err) => {
-                console.log(err)
-            })
+        console.log(order);
+        
+        // const db = getFirestore();
+        // const collection = db.collection("orders"); //se crea automaticamente
+
+        // collection
+        // .add(order)
+        // .then((res) => {
+        //     console.log(res);
+        // })
+        // .catch((err) =>{
+        //     console.log(err);
+        // })
     }
 
     return (
@@ -75,25 +76,28 @@ const Cart = () => {  //aca voy a usar el contexto
                         picture={product.picture}
                     />
                 )
-            })
+                })
             }
             {cart.length !== 0 &&
-                <p>Subtotal: {total}</p>
+            <>
+                <p>Subtotal: {totalCart}</p>
+                <Button onClick={clearCart} className="text-uppercase addCart-btn counter-bttn noShadow">Eliminar todo</Button>
+                <Button onClick={()=> {setOpenForm(true)}} >Me lo llevo!</Button>
+            </>
             }
-            {cart.length !== 0 &&
-                <>
-                    <button onClick={() => handleCart()}></button>
-                    <h2>Datos de compra</h2>
-                    <form onSubmit={handleBuy}>
-                        <input onChange={e => setName(e.target.value)} type="text" placeholder="nombre" value={name} />
-                        <input onChange={e => setTel(e.target.value)} type="tel" placeholder="telefono" value={tel} />
-                        <input onChange={e => setEmail(e.target.value)} type="email" placeholder="email" value={email} />
-                        <button>Comprar</button>
-                    </form>
-                </>
+            {openForm && 
+            <>
+                <h2>Datos de compra</h2>
+                <form onSubmit={handleBuy}>
+                    <input onChange={e => setName(e.target.value)} type="text" placeholder="nombre" value={name} />
+                    <input onChange={e => setTel(e.target.value)} type="tel" placeholder="telefono" value={tel} />
+                    <input onChange={e => setEmail(e.target.value)} type="email" placeholder="email" value={email} />
+                    <button onClick={handleBuy}>Pagar</button>
+                </form>
+            </>
             }
         </Container>
-    )
+    );
 }
 
 export default Cart;

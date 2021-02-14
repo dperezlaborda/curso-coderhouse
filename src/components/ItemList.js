@@ -2,6 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Item from './Item';
+import Loader from './Loader';
 
 const ItemList = ({ list }) => { //traigo el array
 
@@ -21,7 +22,7 @@ const ItemList = ({ list }) => { //traigo el array
                             />
                         )
                     }
-                    ) : <p>Cargando...</p>}   {/* cambiar x animacion */}
+                    ) : <Loader />}  
             </Row>
         </Container>
     )
