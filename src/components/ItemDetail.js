@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,9 +10,8 @@ import '../styles/itemDetail.css';
 
 const ItemDetail = ({ item }) => {
 
-    const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
-    const [color, setColor] = useState("");
 
+    const [bttnText, setBttnText] = useState(true); //Cambia el texto del boton
 
     return (
         <section id="item-detail">

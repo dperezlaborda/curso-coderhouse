@@ -9,12 +9,14 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import FirebaseProvider  from './context/FirebaseContext';
 
 const App = () => {
 
   return (
     <div className="App">
       <CartProvider>  {/*Envuelve todo para poder usar el contexto */}
+      <FirebaseProvider>
         <BrowserRouter>
           <NavBar2 />
             <Switch>
@@ -25,6 +27,7 @@ const App = () => {
             </Switch>
           <Footer />
         </BrowserRouter>
+        </FirebaseProvider>
       </CartProvider>
     </div>
   );

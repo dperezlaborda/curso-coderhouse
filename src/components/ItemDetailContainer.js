@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-//import { FirebaseContext } from '../context/FirebaseContext';
+import React, { useState, useEffect, useContext } from 'react';
+import { FirebaseContext }  from '../context/FirebaseContext';
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 import { getFirestore } from "../firebaseConfig";
@@ -136,10 +136,12 @@ import Loader from './Loader';
 
 const ItemDetailContainer = () => {  //llamar firestore x id
 
-    //const { item } = useContext(FirebaseContext);
+    const { item } = useContext(FirebaseContext);
+
+    console.log(item)
 
     const [loading, setLoading] = useState(false);
-    const [item, setItem] = useState({});  //guardo 1 solo elemento
+    const [itemDetail, setItemDetail] = useState({});  //guardo 1 solo elemento
     const { id } = useParams();
 
     useEffect(() => {
@@ -149,7 +151,7 @@ const ItemDetailContainer = () => {  //llamar firestore x id
                 const itemCollection = await db.collection("items").doc(id);
                 const product = await itemCollection.get()
                 if (product.exists) {
-                    setItem(product.data())
+                    setItemDetail(product.data())
                     setLoading(false)
                 } else {
                     console.log("error")
@@ -157,19 +159,17 @@ const ItemDetailContainer = () => {  //llamar firestore x id
             }
             getProduct();
         }
+        // const findItem = item.find(prod => prod.id === id)
+        // setItemDetail(findItem)
+        // console.log(findItem)
+        // console.log(id)
+
     }, [id])
 
     return (
-        <>
-            {item.length === 0
-                ?
-                <Loader />
-                :
-                <ItemDetail
-                    item={item}
-                />
-            }
-        </>
+
+                <ItemDetail item={itemDetail}/>
+
     )
 }
 

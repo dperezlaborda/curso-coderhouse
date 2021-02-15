@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/fontawesome-free-brands';
 import { faTwitter } from '@fortawesome/fontawesome-free-brands';
 import { faInstagram } from '@fortawesome/fontawesome-free-brands';
+import { Link } from 'react-router-dom';
 
 import '../styles/footer.css';
 
@@ -18,9 +19,9 @@ const Footer = () => {
                     <Col xl="4" lg="3" md="8" sm="8">
                         <div className="mb-5">
                             <div className="footer-logo mb-3">
-                                <a href="#home">
+                                <Link to="/">
                                     <img alt="logo" src={logo} width="100" height="70" className="ml-n3" />
-                                </a>
+                                </Link>
                             </div>
                             <div className="footer-title">
                                 <p className="padding-r">Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>

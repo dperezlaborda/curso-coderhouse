@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { getFirestore } from "../firebaseConfig";
 
-export const FirebaseContext = React.createContext();
+export const FirebaseContext = createContext();
 
 const FirebaseProvider = ({ children }) => {
 
@@ -17,7 +17,7 @@ const FirebaseProvider = ({ children }) => {
         }).catch((err) => {
             console.log(err)
         })
-    }, [item]);
+    }, []);
 
     return (
         <FirebaseContext.Provider value={{ item }}>

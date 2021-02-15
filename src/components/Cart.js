@@ -28,19 +28,20 @@ const Cart = () => {  //aca voy a usar el contexto
             date: firebase.firestore.Timestamp.fromDate(new Date()),
             totalCart: totalCart
         }
-        console.log(order);
-        
-        // const db = getFirestore();
-        // const collection = db.collection("orders"); //se crea automaticamente
 
-        // collection
-        // .add(order)
-        // .then((res) => {
-        //     console.log(res);
-        // })
-        // .catch((err) =>{
-        //     console.log(err);
-        // })
+        console.log(order);  //lo guarda 
+        
+        const db = getFirestore();
+        const collection = db.collection("orders"); //se crea automaticamente
+
+        collection
+        .add(order)   
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) =>{
+            console.log(err);
+        })
     }
 
     return (
@@ -65,10 +66,10 @@ const Cart = () => {  //aca voy a usar el contexto
                     </thead>
                 </Table>
             }
-            {cart.length !== 0 && cart.map(product => {
+            {cart.length !== 0 && cart.map((product, i) => {
                 return (
                     <CartItem
-                        key={product.id}
+                        key={i}
                         id={product.id}
                         title={product.title}
                         price={product.price}
