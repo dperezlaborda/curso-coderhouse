@@ -49,4 +49,7 @@
     margin: 0;
 }
 
+.link-cart:hover{
+    text-decoration: none;
+}
 

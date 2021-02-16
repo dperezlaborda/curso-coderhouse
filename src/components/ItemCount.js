@@ -49,7 +49,7 @@ const ItemCount = ({ item, stock, bttnText, setBttnText }) => {
                     {bttnText ?
                         <Button onClick={ ()=> addToCart() } className="text-uppercase addCart-btn noShadow counter-bttn">Agregar al carrito</Button>
                         :
-                        <Link to="/cart">
+                        <Link to="/cart" className="link-cart">
                             <Button className="text-uppercase addCart-btn noShadow counter-bttn">Terminar compra</Button>
                         </Link>
                     }

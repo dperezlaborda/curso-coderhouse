@@ -34,7 +34,6 @@ const NavBar2 = () => {
                                     <NavLink to="/categories/sillas" className="dropdown-item" >Sillas</NavLink>
                                     <NavLink to="/categories/escritorios" className="dropdown-item">Escritorios</NavLink>
                                     <NavLink to="/categories/deco" className="dropdown-item">Decoración</NavLink>
-                                    <NavLink to="/ofertas" className="dropdown-item">Ofertas</NavLink>
                                 </NavDropdown>
                                 <NavLink to="/info" className="nav-link">Info y Ayuda</NavLink>
                                 <NavLink to="/contacto" className="nav-link">Contacto</NavLink>

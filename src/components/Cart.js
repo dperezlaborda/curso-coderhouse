@@ -6,8 +6,10 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
 import '../styles/cart.css';
 import Table from 'react-bootstrap/Table';
+import Form from 'react-bootstrap/Form';
 import { getFirestore } from "../firebaseConfig";
 import firebase from 'firebase/app';
+import { FormControl, FormGroup } from 'react-bootstrap';
 
 const Cart = () => {  //aca voy a usar el contexto
 
@@ -20,8 +22,17 @@ const Cart = () => {  //aca voy a usar el contexto
     const [tel, setTel] = useState("");
     const [email, setEmail] = useState("");
 
-    const handleBuy = (e) =>{
-        e.preventDefault();
+    const [validated, setValidated] = useState(false);
+
+    const handleBuy = (event) =>{
+
+        const form = event.currentTarget;
+        if(form.checkValidity() === false){
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        setValidated(true);
         const order = {
             buyer: {name, tel, email},
             items: cart,
@@ -45,15 +56,14 @@ const Cart = () => {  //aca voy a usar el contexto
     }
 
     return (
-        <Container id="cart">
-            {cart.length === 0 &&
-                <>
-                    <h2 className="cart-text">Todavia no agregaste productos a tu carrito.</h2>
-                    <h2 className="cart-text text-uppercase d-inline-block mr-1 ">Seguí buscando </h2>
-                    <Link to="/" className="cart-link">acá</Link>
-                </>
-            }
-            {cart.length !== 0 &&
+        cart.length === 0 ?
+            <Container className="cart">
+                <h2 className="cart-text">Todavia no agregaste productos a tu carrito.</h2>
+                <h2 className="cart-text text-uppercase d-inline-block mr-1 ">Seguí buscando </h2>
+                <Link to="/" className="cart-link">acá</Link>
+            </Container>
+        :
+            <Container className="cart">
                 <Table>
                     <thead>
                         <tr>
@@ -64,41 +74,44 @@ const Cart = () => {  //aca voy a usar el contexto
                             <th>Total</th>
                         </tr>
                     </thead>
+                    {cart.map((product, i) => {
+                        return(
+                            <CartItem
+                            key={i}
+                            id={product.id}
+                            title={product.title}
+                            price={product.price}
+                            amount={product.amount}
+                            picture={product.picture}
+                            />
+                        )
+                    })}
                 </Table>
-            }
-            {cart.length !== 0 && cart.map((product, i) => {
-                return (
-                    <CartItem
-                        key={i}
-                        id={product.id}
-                        title={product.title}
-                        price={product.price}
-                        amount={product.amount}
-                        picture={product.picture}
-                    />
-                )
-                })
-            }
-            {cart.length !== 0 &&
-            <>
-                <p>Subtotal: {totalCart}</p>
+                <h5 className="d-flex justify-content-end subtotal">Subtotal: {totalCart}</h5>
                 <Button onClick={clearCart} className="text-uppercase addCart-btn counter-bttn noShadow">Eliminar todo</Button>
-                <Button onClick={()=> {setOpenForm(true)}} >Me lo llevo!</Button>
-            </>
-            }
-            {openForm && 
-            <>
-                <h2>Datos de compra</h2>
-                <form onSubmit={handleBuy}>
-                    <input onChange={e => setName(e.target.value)} type="text" placeholder="nombre" value={name} />
-                    <input onChange={e => setTel(e.target.value)} type="tel" placeholder="telefono" value={tel} />
-                    <input onChange={e => setEmail(e.target.value)} type="email" placeholder="email" value={email} />
-                    <button onClick={handleBuy}>Pagar</button>
-                </form>
-            </>
-            }
-        </Container>
-    );
+                <Button onClick={()=> {setOpenForm(true)}} className="text-uppercase noShadow bttn-checkout">Me lo llevo!</Button>
+                {openForm &&
+                    <div className="my-5">
+                        <h3 className="cart-title text-uppercase">Datos de compra</h3>
+                        <Form noValidate validated={validated} onSubmit={handleBuy}>
+                            <FormGroup>
+                                <FormControl onChange={e => setName(e.target.value)} required type="text" placeholder="Tu nombre" name="name" value={name}></FormControl>
+                                <FormControl.Feedback type="invalid">Falta tu nombre</FormControl.Feedback>
+                            </FormGroup>
+                            <FormGroup>
+                                <FormControl onChange={e => setTel(e.target.value)} required type="tel" placeholder="Telefono" name="tel" value={tel}></FormControl>
+                                <FormControl.Feedback type="invalid">Falta tu telefono</FormControl.Feedback>
+                            </FormGroup>
+                            <FormGroup>
+                                <FormControl onChange={e => setEmail(e.target.value)} required type="email" placeholder="Tu email" name="email" value={email}></FormControl>
+                                <FormControl.Feedback type="invalid">Falta tu email</FormControl.Feedback>
+                            </FormGroup>
+                            <Button className="text-uppercase noShadow bttn-checkout" type="submit">Pagar</Button>
+                        </Form>
+                    </div>
+                }
+            </Container>
+    )
 }
 
 export default Cart;

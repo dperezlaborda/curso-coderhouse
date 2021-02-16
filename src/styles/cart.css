@@ -1,12 +1,20 @@
-#cart{
+.cart{
     padding-top: 90px;
     padding-bottom:40px;
     text-align:center;
 }
 
+.cart-title{
+    font-size: 17px;
+    padding-bottom: 23px;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    color:#6d8c8e;
+}
+
 .cart-text{
     font-size:17px;
-
+    color:#6d8c8e;
 }
 
 .cart-link{
@@ -18,3 +26,28 @@
     color:#bb911e;
 }
 
+th{
+    color:#6d8c8e;
+}
+
+.subtotal{
+    color: #6d8c8e;
+    font-weight: bold;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.bttn-checkout{
+    background-color: #6d8c8e;
+    border-color: #6d8c8e;
+    border-radius: 10px;
+    font-size: 13px;
+    height: 60px;
+    min-width: 130px;
+    letter-spacing: 1px;
+}
+
+.bttn-checkout:hover{
+    background-color:#7c9da0;
+    border-color: #7c9da0;
+    transition: 0.2s ease-in-out;
+}
