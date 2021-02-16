@@ -11,7 +11,7 @@ La librería extra que use es React-Bootstrap https://react-bootstrap.github.io/
 6. Al clickear el botón de "Me lo llevo!" se abre un formulario donde se deben completar todos los campos, una vez completos se activa el botón para pagar. 
 7. Por último nos dará un mensaje con la orden de compra. 
 
-![graba_pantalla](https://user-images.githubusercontent.com/55368538/108099916-f934ea80-7063-11eb-89f6-3c1347acad37.gif)
+![screen-capture (3)](https://user-images.githubusercontent.com/55368538/108101368-e1f6fc80-7065-11eb-8de7-5f5391186282.gif)
 
 Se aplica responsive desing
 
