@@ -12,6 +12,7 @@ La librería extra que use es React-Bootstrap https://react-bootstrap.github.io/
 7. Por último nos dará un mensaje con la orden de compra. 
 
 ![screen-capture](https://user-images.githubusercontent.com/55368538/108095388-8f661200-705e-11eb-9ce7-9e5ae0e1fa91.gif)
+![screen-capture](https://user-images.githubusercontent.com/55368538/108096086-537f7c80-705f-11eb-9186-279d01ee0a58.mp4)
 
 Se aplica responsive desing
 
