@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import ItemList from './ItemList';
+//firebase
 import { getFirestore } from "../firebaseConfig";
+//router
+import { useParams } from 'react-router-dom';
+//boostrap
 import Container from 'react-bootstrap/Container';
+//container
+import ItemList from './ItemList';
+
 
 // const allProducts = [   //array global
 //     {

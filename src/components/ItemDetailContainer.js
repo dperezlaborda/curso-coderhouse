@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
+//contexto
 import { FirebaseContext }  from '../context/FirebaseContext';
+//router
 import { useParams } from 'react-router-dom';
-import ItemDetail from './ItemDetail';
+//firebase
 import { getFirestore } from "../firebaseConfig";
-import Loader from './Loader';
+//components
+import ItemDetail from './ItemDetail';
 
 // const details = [   //array global
 //     {
@@ -167,9 +170,7 @@ const ItemDetailContainer = () => {  //llamar firestore x id
     }, [id])
 
     return (
-
-                <ItemDetail item={itemDetail}/>
-
+        <ItemDetail item={itemDetail}/>
     )
 }
 

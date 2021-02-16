@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
+//contexto
 import { CartContext } from '../context/CartContext';
+//style
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import '../styles/cartItem.css';
@@ -7,8 +9,6 @@ import '../styles/cartItem.css';
 const CartItem = ({ title, price, picture, amount, id }) => {
 
     const { removeItem } = useContext(CartContext);
-
-    //se suma cada producto 
 
     return (
         <tbody>

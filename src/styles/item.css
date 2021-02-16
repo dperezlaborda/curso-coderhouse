@@ -3,25 +3,25 @@
 }
 
 .card{
-    max-width: 260px;
+    border: none;
+    cursor: pointer;
     height: 510px;
+    margin-bottom: 25px;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
+    max-width: 260px;
     min-width:260px;
-    cursor: pointer;
-    margin-bottom: 25px;
-    border: none;
+    overflow: hidden;
 }
 
 .card:hover{
-    transition:.2s ease-out;
     box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.38);
+    transition:.2s ease-out;
 }
 
 .img-wrapper{
-    position: relative;
     height:387px;
+    position: relative;
 }
 
 .card img{
@@ -30,23 +30,23 @@
 }
 
 .img-overlay{
-    position: absolute;
     background: #6d8c8ee1;
     bottom:0;
-    left:0;
-    width:100%;
-    padding:30px 5px;
     color: red;
-    visibility: hidden;
+    left:0;
     list-style-type: none;
-    opacity: 0;
     margin: 0;
+    opacity: 0;
+    padding:30px 5px;
+    position: absolute;
     transition: all .48s ease;
+    visibility: hidden;
+    width:100%;
 }
 
 .img-wrapper:hover .img-overlay{
-    visibility: visible;
     opacity: 0.6;
+    visibility: visible;
 }
 
 .bttn-overlay{
@@ -59,14 +59,14 @@
 }
 
 .card-title{
+    color:#6d8c8e;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    color:#6d8c8e;
 }
 
 .card-title:hover{
-    transition:all .48s ease;
     color:#475A5C;
+    transition:all .48s ease;
 }
 
 .price{

@@ -1,12 +1,12 @@
 .imagen-cart{
     height: 100px;
-    width:auto;
     padding-right: 30px;
+    width:auto;
 }
 
 .media{
-    width: 50px;
     min-width: 50px;
+    width: 50px;
 }
 
 .trash-icon{

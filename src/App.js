@@ -1,15 +1,15 @@
 import React from 'react';
+//contexto
 import CartProvider from './context/CartContext';
+import FirebaseProvider  from './context/FirebaseContext';
+//components
 import NavBar2 from './components/NavBar2';
-//import Home from './sections/Home';
-//import Contact from './sections/Contact';
-//import Info from './sections/Info';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
+//router
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import FirebaseProvider  from './context/FirebaseContext';
 
 const App = () => {
 

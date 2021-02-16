@@ -1,15 +1,21 @@
 import React, { useContext, useState } from 'react';
+//contexto
 import { CartContext } from '../context/CartContext';
-import CartItem from './CartItem';
-import { Link } from 'react-router-dom';
+//bootstrap
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
-import '../styles/cart.css';
 import Table from 'react-bootstrap/Table';
-import Form from 'react-bootstrap/Form';
+//components
+import CartItem from './CartItem';
+import FormCart from './FormCart';
+//router
+import { Link } from 'react-router-dom';
+//firebase
 import { getFirestore } from "../firebaseConfig";
 import firebase from 'firebase/app';
-import { FormControl, FormGroup } from 'react-bootstrap';
+//style
+import '../styles/cart.css';
+
 
 const Cart = () => {  //aca voy a usar el contexto
 
@@ -18,41 +24,38 @@ const Cart = () => {  //aca voy a usar el contexto
     const totalCart = cart.reduce((acumulador, current) => acumulador + current.price * current.amount, 0) //sumo el total de cart, cada producto
 
     const [openForm, setOpenForm] = useState(false);
-    const [name, setName] = useState("");
-    const [tel, setTel] = useState("");
-    const [email, setEmail] = useState("");
+    const [orderId, setOrderId] = useState(null);
 
-    const [validated, setValidated] = useState(false);
-
-    const handleBuy = (event) =>{
-
-        const form = event.currentTarget;
-        if(form.checkValidity() === false){
-            event.preventDefault();
-            event.stopPropagation();
-        }
-
-        setValidated(true);
+    const handleCheckout = () =>{
+        setOpenForm(true);
+    }
+   
+    //funcion para guardar la compra, no funciona porque arrastra error del ItemDetail(id es undefined)
+    const submitOrder = (buyer)=>{
+        const db = getFirestore();
+        const orders = db.collection("orders"); //se crea automaticamente
         const order = {
-            buyer: {name, tel, email},
+            buyer,
             items: cart,
             date: firebase.firestore.Timestamp.fromDate(new Date()),
             totalCart: totalCart
         }
 
-        console.log(order);  //lo guarda 
-        
-        const db = getFirestore();
-        const collection = db.collection("orders"); //se crea automaticamente
-
-        collection
+        console.log(order);  //ok funciona, lo guarda
+        orders
         .add(order)   
         .then((res) => {
-            console.log(res);
+            setOrderId(res.id);
         })
         .catch((err) =>{
             console.log(err);
-        })
+        }) 
+    }
+
+    if(orderId){
+        return(
+            <h2>Tu orden de compra es: {orderId}</h2>
+        )
     }
 
     return (
@@ -89,27 +92,13 @@ const Cart = () => {  //aca voy a usar el contexto
                 </Table>
                 <h5 className="d-flex justify-content-end subtotal">Subtotal: {totalCart}</h5>
                 <Button onClick={clearCart} className="text-uppercase addCart-btn counter-bttn noShadow">Eliminar todo</Button>
-                <Button onClick={()=> {setOpenForm(true)}} className="text-uppercase noShadow bttn-checkout">Me lo llevo!</Button>
-                {openForm &&
-                    <div className="my-5">
-                        <h3 className="cart-title text-uppercase">Datos de compra</h3>
-                        <Form noValidate validated={validated} onSubmit={handleBuy}>
-                            <FormGroup>
-                                <FormControl onChange={e => setName(e.target.value)} required type="text" placeholder="Tu nombre" name="name" value={name}></FormControl>
-                                <FormControl.Feedback type="invalid">Falta tu nombre</FormControl.Feedback>
-                            </FormGroup>
-                            <FormGroup>
-                                <FormControl onChange={e => setTel(e.target.value)} required type="tel" placeholder="Telefono" name="tel" value={tel}></FormControl>
-                                <FormControl.Feedback type="invalid">Falta tu telefono</FormControl.Feedback>
-                            </FormGroup>
-                            <FormGroup>
-                                <FormControl onChange={e => setEmail(e.target.value)} required type="email" placeholder="Tu email" name="email" value={email}></FormControl>
-                                <FormControl.Feedback type="invalid">Falta tu email</FormControl.Feedback>
-                            </FormGroup>
-                            <Button className="text-uppercase noShadow bttn-checkout" type="submit">Pagar</Button>
-                        </Form>
-                    </div>
+                <Button onClick={handleCheckout} className="text-uppercase noShadow bttn-checkout">Me lo llevo!</Button>
+                {openForm ?
+                    <FormCart submitOrder={submitOrder}/>
+                    :
+                    null
                 }
+
             </Container>
     )
 }

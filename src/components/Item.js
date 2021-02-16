@@ -1,8 +1,11 @@
 import React from 'react';
+//bootstrap
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+//router
 import { Link } from 'react-router-dom';
+//style
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/item.css';

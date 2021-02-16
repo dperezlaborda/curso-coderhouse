@@ -1,12 +1,17 @@
 import React, { useState, useContext } from 'react';
+//contexto
+import { CartContext } from '../context/CartContext';
+//bootstrap
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+//router
 import { Link } from 'react-router-dom';
+//stylle
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/itemCount.css';
-import { CartContext } from '../context/CartContext';
+
 
 const ItemCount = ({ item, stock, bttnText, setBttnText }) => {
 

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+//bootstrap
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
+//component
 import ItemCount from './ItemCount';
-
+//style
 import '../styles/itemDetail.css';
 
 

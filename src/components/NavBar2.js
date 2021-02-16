@@ -1,12 +1,13 @@
 import React from 'react';
+//bootstrap
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+//router
 import { NavLink } from 'react-router-dom';
-
+//style
 import '../styles/navbar2.css';
-
 import logo from '../images/logo.png';
 import CartWidget from './CartWidget';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
